@@ -1,12 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
+import pokeballLogo from './assets/sprites/pokeball.png';
+import { Navbar } from './components/navbar/Navbar'
 import './App.css';
 
 const App: React.FC = () => {
   return (
     <div className="App">
+      <Navbar />
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <h1>Welcome!</h1>
+        <img src={pokeballLogo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
@@ -14,13 +17,12 @@ const App: React.FC = () => {
           className="App-link"
           href="https://reactjs.org"
           target="_blank"
-          rel="noopener noreferrer"
-        >
+          rel="noopener noreferrer">
           Learn React
         </a>
       </header>
     </div>
   );
-}
+};
 
 export default App;
