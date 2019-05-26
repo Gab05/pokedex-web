@@ -1,5 +1,6 @@
 import React from 'react'
 import { DropdownItemType } from "./DropdownItemType";
+import './DropdownItem.css'
 
 interface DropdownItemProps {
   type: DropdownItemType
@@ -18,9 +19,14 @@ export class DropdownItem extends React.Component<DropdownItemProps, DropdownIte
 
   render() {
     return (
-      <div>
-        {this.props.name}
+      <div className='dropdownitem'>
+        <img src={this.getIconStaticUrl()} alt='' />
+        <span>{this.props.name}</span>
       </div>
     );
+  }
+
+  getIconStaticUrl = (): string =>{
+    return '../../assets/pokemons/' + this.props.name + '.png'
   }
 }

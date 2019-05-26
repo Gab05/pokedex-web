@@ -1,5 +1,5 @@
 import React from 'react';
-import pokeballLogo from './assets/sprites/pokeball.png';
+import pokeballLogo from './assets/pokeball.png';
 import { Navbar } from './components/navbar/Navbar'
 import './App.css';
 

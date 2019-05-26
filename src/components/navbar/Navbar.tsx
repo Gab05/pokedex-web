@@ -1,7 +1,7 @@
 import React from 'react'
 import { SearchBar } from './SearchBar';
 import pokemonList from '../../assets/pokemonList'
-import pokeballIcon from '../../assets/sprites/pokeball.png'
+import pokeballIcon from '../../assets/pokeball.png'
 
 export class Navbar extends React.Component {
 
@@ -10,7 +10,7 @@ export class Navbar extends React.Component {
       <div className="navbar is-fixed-top is-link">
           <div className="navbar-brand">
             <div className='navbar-item'>
-              <img src={pokeballIcon} alt='pokeball icon'/>
+              <img src={pokeballIcon} alt=''/>
             </div>
             <div className='navbar-item'>
               <SearchBar pokemonList={pokemonList}/>

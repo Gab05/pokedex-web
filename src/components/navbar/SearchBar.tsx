@@ -27,7 +27,7 @@ export class SearchBar extends React.Component<SearchBarProps, SearchBarState> {
 
   render () {
     return(
-      <div className='searchbar'>
+      <div>
         <input
           value={this.state.query.value}
           onChange={this.updateQuery}
