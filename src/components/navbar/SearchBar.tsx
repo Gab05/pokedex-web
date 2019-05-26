@@ -1,41 +1,81 @@
 import React from 'react'
 import { Dropdown } from "../dropdown/Dropdown";
 import { Query } from "../../models/Query";
+import './SearchBar.css'
 
-interface SearchDropdownProps {
-  pokemons: string[]
+interface SearchBarProps {
+  pokemonList: string[]
 }
 
-interface SearchDropdownState {
+interface SearchBarState {
   query: Query
-  inputValue: string
+  showDropdown: boolean
   matchingPokemonNames: string[]
 }
 
-export class SearchBar extends React.Component<SearchDropdownProps, SearchDropdownState> {
+export class SearchBar extends React.Component<SearchBarProps, SearchBarState> {
+
+  constructor(props: SearchBarProps) {
+    super(props);
+    this.state = {
+      query: new Query(''),
+      showDropdown: false,
+      matchingPokemonNames: []
+    };
+    this.updateQuery = this.updateQuery.bind(this);
+  }
 
   render () {
     return(
-      <div>
+      <div className='searchbar'>
         <input
-          onChange={this.updateQuery.bind(this)}
-          className='input is-rounded'
+          value={this.state.query.value}
+          onChange={this.updateQuery}
+          placeholder='Look for a Pokémon / Move ...'
+          className='searchbar__input input is-rounded'
         />
-        <Dropdown />
+        {this.state.showDropdown
+          ? <Dropdown pokemonNames={this.state.matchingPokemonNames}/>
+          : null
+        }
       </div>
     );
   }
 
-  updateQuery = () => {
-    this.setState((state) => {
-      return { query: new Query(state.inputValue) }
-    });
-    this.findMatchingPokemonNames()
+  updateQuery = (event: any) => {
+    const newInputValue = event.target.value;
+
+    this.setState(() => {
+      return { query: new Query(newInputValue) }
+    }, this.loadDropdown);
+  };
+
+  loadDropdown = () => {
+    if (this.state.query.value.length >= 2) {
+      this.findMatchingPokemonNames();
+    }
+    else this.hideDropdown()
   };
 
   findMatchingPokemonNames = () => {
-    return this.props.pokemons.filter((name: string) => {
-      return this.state.query.isASubsequenceOf(name)
+    this.setState((state, props) => {
+      return {
+        matchingPokemonNames: props.pokemonList.filter((name: string) => {
+          return state.query.isASubsequenceOf(name)
+        })
+      }
+    }, this.showDropdown);
+  };
+
+  showDropdown = () => {
+    this.setState(() => {
+      return { showDropdown: true }
     })
-  }
+  };
+
+  hideDropdown = () => {
+    this.setState(() => {
+      return { showDropdown: false }
+    })
+  };
 }

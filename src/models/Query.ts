@@ -1,7 +1,7 @@
 
 
 export class Query {
-  value: String = "";
+  value: string = "";
 
   constructor(value: string) {
     this.value = value
