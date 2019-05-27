@@ -1,16 +1,23 @@
 import React from 'react'
-import pokeballLogo from './assets/pokeball.png'
 import { Navbar } from './components/navbar/Navbar'
+import { Home } from './components/Home'
+import { ResourceType } from './models/ResourceType'
+import { Pokemon } from './components/pokemon/Pokemon'
+import { Move } from './components/Move'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import './App.css'
 
 const App = () => {
   return (
     <div className='App'>
-      <Navbar />
-      <header className='App-header'>
-        <h1>Welcome!</h1>
-        <img src={pokeballLogo} className='App-logo' alt='logo' />
-      </header>
+      <Router>
+        <Navbar />
+        <div className='App-body'>
+          <Route path='/' exact={true} component={Home} />
+          <Route path={`/${ResourceType.POKEMON}/:name`} component={Pokemon} />
+          <Route path={`/${ResourceType.MOVE}/:name`} component={Move} />
+        </div>
+      </Router>
     </div>
   )
 }

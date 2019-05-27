@@ -1,11 +1,9 @@
 import React from 'react'
 import { Dropdown } from '../dropdown/Dropdown'
 import { Query } from '../../models/Query'
+import ServiceContainer from '../../services/ServiceContainer'
+import { PokemonService } from '../../services/PokemonService'
 import './SearchBar.css'
-
-interface SearchBarProps {
-  pokemonList: string[]
-}
 
 interface SearchBarState {
   query: Query
@@ -13,32 +11,29 @@ interface SearchBarState {
   matchingPokemonNames: string[]
 }
 
-export class SearchBar extends React.Component<SearchBarProps, SearchBarState> {
+export class SearchBar extends React.Component<any, SearchBarState> {
 
-  searchbarNode: any = undefined
+  private readonly pokemonService = ServiceContainer.get(PokemonService)
 
-  constructor(props: SearchBarProps) {
+  constructor(props: any) {
     super(props)
     this.state = {
       query: new Query(''),
       showDropdown: false,
-      matchingPokemonNames: [],
+      matchingPokemonNames: []
     }
     this.updateQuery = this.updateQuery.bind(this)
   }
 
   componentDidMount = () => {
-    document.addEventListener('click', (e) => {
-      if (this.searchbarNode.contains(e.target))
-        this.showDropdown()
-      else
+    document.addEventListener('click', () => {
         this.hideDropdown()
     })
   }
 
   render() {
     return(
-      <div ref={(node) => this.searchbarNode = node}>
+      <div>
         <input
           value={this.state.query.value}
           onChange={this.updateQuery}
@@ -68,7 +63,7 @@ export class SearchBar extends React.Component<SearchBarProps, SearchBarState> {
   findMatchingPokemonNames = () => {
     this.setState((state, props) => {
       return {
-        matchingPokemonNames: props.pokemonList.filter((name: string) => {
+        matchingPokemonNames: this.pokemonService.getPokemonList().filter((name: string) => {
           return state.query.isASubsequenceOf(name)
         }),
       }

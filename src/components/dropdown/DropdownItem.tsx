@@ -1,12 +1,13 @@
 import React from 'react'
 import ServiceContainer from '../../services/ServiceContainer'
 import { NameBeautifier } from '../../services/nameBeautifiers/NameBeautifier'
-import { DropdownItemType } from './DropdownItemType'
+import { ResourceType } from '../../models/ResourceType'
 import { PokemonNameBeautifier } from '../../services/nameBeautifiers/PokemonNameBeautifier'
+import { Link } from 'react-router-dom'
 import './DropdownItem.css'
 
 interface DropdownItemProps {
-  type: DropdownItemType
+  type: ResourceType
   name: string
 }
 
@@ -25,7 +26,7 @@ export class DropdownItem extends React.Component<DropdownItemProps, DropdownIte
 
   render() {
     return (
-      <a className='dropdownitem level' href='/'>
+      <Link to={`/${this.props.type.toLowerCase()}/${this.props.name}`} className='dropdownitem level'>
         <div className='dropdownitem__row level-item'>
           <img
             src={process.env.PUBLIC_URL + '/icons/pokemons/' + this.props.name + '.png'}
@@ -34,7 +35,7 @@ export class DropdownItem extends React.Component<DropdownItemProps, DropdownIte
           />
           <span>{this.pokemonNameBeautifier.beautifyName(this.props.name)}</span>
         </div>
-      </a>
+      </Link>
     )
   }
 }
