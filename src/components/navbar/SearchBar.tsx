@@ -15,6 +15,8 @@ interface SearchBarState {
 
 export class SearchBar extends React.Component<SearchBarProps, SearchBarState> {
 
+  searchbarNode: any = undefined
+
   constructor(props: SearchBarProps) {
     super(props)
     this.state = {
@@ -25,9 +27,18 @@ export class SearchBar extends React.Component<SearchBarProps, SearchBarState> {
     this.updateQuery = this.updateQuery.bind(this)
   }
 
+  componentDidMount = () => {
+    document.addEventListener('click', (e) => {
+      if (this.searchbarNode.contains(e.target))
+        this.showDropdown()
+      else
+        this.hideDropdown()
+    })
+  }
+
   render() {
     return(
-      <div>
+      <div ref={(node) => this.searchbarNode = node}>
         <input
           value={this.state.query.value}
           onChange={this.updateQuery}

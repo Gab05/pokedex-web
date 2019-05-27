@@ -1,17 +1,10 @@
-import { interfaces, Container } from 'inversify'
+import 'reflect-metadata'
+import { Container } from 'inversify'
+import { NameBeautifier } from './nameBeautifiers/NameBeautifier'
 import { PokemonNameBeautifier } from './nameBeautifiers/PokemonNameBeautifier'
 
-export class ServiceContainer {
+const ServiceContainer = new Container()
 
-  private readonly container: interfaces.Container
+ServiceContainer.bind<NameBeautifier>(PokemonNameBeautifier).toSelf()
 
-  constructor() {
-    this.container = new Container()
-
-    this.container.bind(PokemonNameBeautifier).toSelf()
-  }
-
-  getContainer = () => {
-    return this.container
-  }
-}
+export default ServiceContainer

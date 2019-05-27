@@ -1,9 +1,11 @@
 import { NameBeautifier } from './NameBeautifier'
+import { injectable } from 'inversify'
 
+@injectable()
 export class PokemonNameBeautifier implements NameBeautifier {
 
   beautifyName = (name: string): string => {
-    name.replace('_', ' ')
+    name = name.replace('_', ' ')
     name = this.capitalizeEachWord(name)
     return this.handlePokemonNameExceptions(name)
   }
@@ -29,6 +31,14 @@ export class PokemonNameBeautifier implements NameBeautifier {
         return 'Nidoran♂'
       case 'Nidoran F':
         return 'Nidoran♀'
+      case 'Jangmo O':
+        return 'Jangmo-o'
+      case 'Hakamo O':
+        return 'Hakamo-o'
+      case 'Kommo O':
+        return 'Kommo-o'
+      case 'Ho Oh':
+        return 'Ho-Oh'
       default:
         return name
     }
