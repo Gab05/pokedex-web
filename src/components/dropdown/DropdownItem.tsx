@@ -1,5 +1,7 @@
 import React from 'react'
-import { DropdownItemType } from "./DropdownItemType";
+import { NameBeautifier } from '../../services/nameBeautifiers/NameBeautifier'
+import { DropdownItemType } from './DropdownItemType'
+import { PokemonNameBeautifier } from '../../services/nameBeautifiers/PokemonNameBeautifier'
 import './DropdownItem.css'
 
 interface DropdownItemProps {
@@ -12,21 +14,27 @@ interface DropdownItemState {
 }
 
 export class DropdownItem extends React.Component<DropdownItemProps, DropdownItemState> {
+
+  private readonly pokemonNameBeautifier: NameBeautifier
+
   constructor(props: DropdownItemProps) {
-    super(props);
+    super(props)
+    this.pokemonNameBeautifier = new PokemonNameBeautifier()
     this.state = { selected: false }
   }
 
   render() {
     return (
-      <div className='dropdownitem'>
-        <img src={this.getIconStaticUrl()} alt='' />
-        <span>{this.props.name}</span>
-      </div>
-    );
-  }
-
-  getIconStaticUrl = (): string =>{
-    return '../../assets/pokemons/' + this.props.name + '.png'
+      <a className='dropdownitem level' href='/'>
+        <div className='level-item is-pulled-left'>
+          <img
+            src={process.env.PUBLIC_URL + '/icons/pokemons/' + this.props.name + '.png'}
+            className='dropdownitem__icon'
+            alt=''
+          />
+          <span>{this.pokemonNameBeautifier.beautifyName(this.props.name)}</span>
+        </div>
+      </a>
+    )
   }
 }

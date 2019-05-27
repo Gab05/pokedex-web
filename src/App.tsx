@@ -1,28 +1,26 @@
-import React from 'react';
-import pokeballLogo from './assets/pokeball.png';
+import React from 'react'
+import pokeballLogo from './assets/pokeball.png'
 import { Navbar } from './components/navbar/Navbar'
-import './App.css';
+import { ServiceContainer } from './services/ServiceContainer'
+import { Provider } from 'inversify-react'
+import 'reflect-metadata'
+import './App.css'
 
-const App: React.FC = () => {
-  return (
-    <div className="App">
-      <Navbar />
-      <header className="App-header">
-        <h1>Welcome!</h1>
-        <img src={pokeballLogo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-};
+export class App extends React.Component {
 
-export default App;
+  private readonly serviceContainer: ServiceContainer = new ServiceContainer()
+
+  render() {
+    return (
+      <div className='App'>
+        <Provider container={this.serviceContainer.getContainer()}>
+          <Navbar />
+          <header className='App-header'>
+            <h1>Welcome!</h1>
+            <img src={pokeballLogo} className='App-logo' alt='logo' />
+          </header>
+        </Provider>
+      </div>
+    )
+  }
+}

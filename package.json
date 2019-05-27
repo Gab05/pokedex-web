@@ -8,11 +8,13 @@
     "@types/react": "16.8.18",
     "@types/react-dom": "16.8.4",
     "bulma": "^0.7.5",
+    "inversify": "^5.0.1",
+    "inversify-react": "^0.4.1",
     "react": "^16.8.6",
     "react-burger-menu": "^2.6.10",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1",
-    "typescript": "3.4.5"
+    "reflect-metadata": "^0.1.13"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -39,6 +41,9 @@
     "@types/chai": "^4.1.7",
     "@types/mocha": "^5.2.6",
     "chai": "^4.2.0",
-    "mocha": "^6.1.4"
+    "mocha": "^6.1.4",
+    "tslint": "^5.16.0",
+    "tslint-react": "^4.0.0",
+    "typescript": "^3.4.5"
   }
 }

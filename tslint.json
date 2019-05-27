@@ -9,10 +9,20 @@
     "rules": {
         "member-access": false,
         "ordered-imports": false,
-        "quotemark": false,
+        "quotemark": [true, "single"],
         "no-console": false,
-        "semicolon": false,
-        "jsx-no-lambda": false
+        "semicolon": [true, "never"],
+        "interface-name": [true, "never-prefix"],
+        "jsx-no-lambda": false,
+        "no-trailing-whitespace": true,
+        "object-literal-sort-keys": false,
+        "trailing-comma": {
+            "multiline": "always",
+            "singleline": "never"
+        },
+        "curly": [true, "as-needed"],
+        "whitespace": true,
+        "no-consecutive-blank-lines": true
     },
     "rulesDirectory": [
     ],
