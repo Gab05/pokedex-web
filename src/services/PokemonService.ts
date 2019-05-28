@@ -1,5 +1,6 @@
-import pokemonList from '../assets/pokemonList'
+import 'reflect-metadata'
 import { injectable } from 'inversify'
+import pokemonList from '../assets/pokemonList'
 
 @injectable()
 export class PokemonService {

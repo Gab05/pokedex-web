@@ -1,3 +1,4 @@
+import 'reflect-metadata'
 import { NameBeautifier } from './NameBeautifier'
 import { injectable } from 'inversify'
 
