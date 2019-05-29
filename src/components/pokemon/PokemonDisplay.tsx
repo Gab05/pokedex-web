@@ -7,7 +7,7 @@ interface PokemonState {
   name: string
 }
 
-export class Pokemon extends React.Component<any & RouteProps, PokemonState> {
+export class PokemonDisplay extends React.Component<any & RouteProps, PokemonState> {
 
   private readonly pokemonService = ServiceContainer.get(PokemonService)
 

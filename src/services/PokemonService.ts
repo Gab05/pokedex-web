@@ -5,11 +5,11 @@ import pokemonList from '../assets/pokemonList'
 @injectable()
 export class PokemonService {
 
-  getPokemonList = () => {
-    return pokemonList
-  }
+  BASE_URL = 'http://localhost:8080'
 
-  getNumberFromName = (name: string): number => {
-    return pokemonList.indexOf(name) + 1
-  }
+  getPokemonList = () => pokemonList
+
+  getNumberFromName = (name: string): number => pokemonList.indexOf(name) + 1
+
+  fetchPokemonByName = (name: string) => fetch(this.BASE_URL + '/pokemons/' + name).
 }
