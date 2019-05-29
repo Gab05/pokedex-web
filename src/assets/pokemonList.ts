@@ -805,5 +805,5 @@ export default [
   'naganadel',
   'stakataka',
   'blacephalon',
-  'zeraora'
+  'zeraora',
 ]

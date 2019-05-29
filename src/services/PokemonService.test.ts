@@ -16,4 +16,12 @@ describe('PokemonService', () => {
       expect(service.getPokemonList().length).toBe(807)
     })
   })
+
+  describe('when getting a pokemon number from its name', () => {
+    it('should return the right number', () => {
+      expect(service.getNumberFromName('bulbasaur')).toBe(1)
+      expect(service.getNumberFromName('arceus')).toBe(493)
+      expect(service.getNumberFromName('zeraora')).toBe(807)
+    })
+  })
 })

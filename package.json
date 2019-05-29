@@ -12,7 +12,6 @@
     "inversify": "^5.0.1",
     "inversify-react": "^0.4.1",
     "react": "^16.8.6",
-    "react-burger-menu": "^2.6.10",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.1",
@@ -41,9 +40,15 @@
   },
   "devDependencies": {
     "@types/chai": "^4.1.7",
+    "@types/enzyme": "^3.9.3",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
     "@types/mocha": "^5.2.6",
+    "@types/sinon": "^7.0.12",
     "chai": "^4.2.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.13.2",
     "mocha": "^6.1.4",
+    "sinon": "^7.3.2",
     "tslint": "^5.16.0",
     "tslint-react": "^4.0.0",
     "typescript": "^3.4.5"

@@ -20,15 +20,13 @@ export class SearchBar extends React.Component<any, SearchBarState> {
     this.state = {
       query: new Query(''),
       showDropdown: false,
-      matchingPokemonNames: []
+      matchingPokemonNames: [],
     }
     this.updateQuery = this.updateQuery.bind(this)
   }
 
-  componentDidMount = () => {
-    document.addEventListener('click', () => {
-        this.hideDropdown()
-    })
+  componentDidMount() {
+    document.addEventListener('click', this.hideDropdown)
   }
 
   render() {
@@ -61,7 +59,7 @@ export class SearchBar extends React.Component<any, SearchBarState> {
   }
 
   findMatchingPokemonNames = () => {
-    this.setState((state, props) => {
+    this.setState((state) => {
       return {
         matchingPokemonNames: this.pokemonService.getPokemonList().filter((name: string) => {
           return state.query.isASubsequenceOf(name)
