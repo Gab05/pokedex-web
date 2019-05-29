@@ -40,6 +40,8 @@ export class PokemonNameBeautifier implements NameBeautifier {
         return 'Kommo-o'
       case 'Ho Oh':
         return 'Ho-Oh'
+      case 'Farfetch D':
+        return 'Farfetch\'d'
       default:
         return name
     }

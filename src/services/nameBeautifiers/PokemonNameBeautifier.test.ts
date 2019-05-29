@@ -21,5 +21,6 @@ describe('PokemonNameBeautifier', () => {
     expect(beautifier.beautifyName('kommo_o')).toBe('Kommo-o')
     expect(beautifier.beautifyName('hakamo_o')).toBe('Hakamo-o')
     expect(beautifier.beautifyName('jangmo_o')).toBe('Jangmo-o')
+    expect(beautifier.beautifyName('farfetch_d')).toBe('Farfetch\'d')
   })
 })
