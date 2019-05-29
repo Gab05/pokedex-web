@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import pokeballIcon from '../../assets/pokeball.png'
 
 export class Navbar extends React.Component {
-
   render() {
     return (
       <div className='navbar is-fixed-top is-link'>

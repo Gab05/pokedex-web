@@ -8,7 +8,6 @@ interface DropdownProps {
 }
 
 export class Dropdown extends React.Component<DropdownProps, {}> {
-
   render() {
     const displayedItems: JSX.Element[] = []
 
