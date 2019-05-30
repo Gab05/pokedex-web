@@ -6,6 +6,7 @@ import { Pokemon } from '../models/pokemon/Pokemon'
 @injectable()
 export class PokemonService {
 
+  // TODO: Eventually store in config file to offer both local and heroku backend hosting
   BASE_URL = 'http://localhost:8080'
 
   getPokemonList = () => pokemonList
@@ -14,6 +15,6 @@ export class PokemonService {
 
   fetchPokemonByName = (name: string) => fetch(this.BASE_URL + '/pokemons/' + name)
     .then((response: Response) => {
-      return JSON.parse(response.body!.toString())
+      return response.json()
     }).then((pokemon: Pokemon) => pokemon)
 }

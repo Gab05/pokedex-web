@@ -5,7 +5,8 @@ import { PokemonService } from '../../services/PokemonService'
 import { RouteProps } from 'react-router'
 
 interface PokemonState {
-  pokemon?: Pokemon
+  name: string
+  pokemon: Pokemon
 }
 
 export class PokemonDisplay extends React.Component<any & RouteProps, PokemonState> {
@@ -14,13 +15,29 @@ export class PokemonDisplay extends React.Component<any & RouteProps, PokemonSta
 
   constructor(props: any) {
     super(props)
+
+    this.state = {
+      name: this.props.match.params.name,
+      pokemon: {},
+    }
+  }
+
+  componentDidMount(): void {
+    this.pokemonService.fetchPokemonByName(this.state.name).then((fetchedPokemon) => {
+      this.setState(() => {
+        return { pokemon: fetchedPokemon }
+      })
+    })
   }
 
   render() {
     return (
-      <div className='container'>
+      <div>
         <div className='hero is-link'>
-          #{this.state.pokemon!.nationalNumber} {this.state.pokemon!.name}
+          #{this.pokemonService.getNumberFromName(this.state.name)} {this.state.name}
+        </div>
+        <div>
+          TYPE: {this.state.pokemon!.typing}
         </div>
       </div>
     )

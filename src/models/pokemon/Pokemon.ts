@@ -8,20 +8,20 @@ import { GenderRatio } from './basic/GenderRatio'
 import { EggGroup } from './basic/EggGroup'
 
 export interface Pokemon {
-  name: string
-  nationalNumber: number
-  typing: Type[]
-  weight: Weight
-  abilities: Abilities
+  name?: string
+  nationalNumber?: number
+  typing?: Type[]
+  weight?: Weight
+  abilities?: Abilities
   levelUpMoves?: Move[]
   breedingMoves?: Move[]
   tutorMoves?: Move[]
-  baseStats: Stats
+  baseStats?: Stats
   baseExpGrowth?: ExpGrowth
   baseEggSteps?: number
   baseHappiness?: number
-  genderRatio: GenderRatio
-  captureRate: string
+  genderRatio?: GenderRatio
+  captureRate?: string
   eggGroup?: EggGroup[]
   effortValuesYielded?: Stats
 }
