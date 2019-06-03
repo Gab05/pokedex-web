@@ -26,14 +26,17 @@ export class DropdownItem extends React.Component<DropdownItemProps, DropdownIte
 
   render() {
     return (
-      <Link to={`/${this.props.type.toLowerCase()}/${this.props.name}`} className='dropdownitem level'>
-        <div className='dropdownitem__row level-item'>
-          <img
-            src={process.env.PUBLIC_URL + '/icons/pokemons/' + this.props.name + '.png'}
-            className='dropdownitem__icon'
-            alt=''
-          />
-          <span>{this.pokemonNameBeautifier.beautifyName(this.props.name)}</span>
+      <Link to={`/${this.props.type.toLowerCase()}/${this.props.name}`} className='dropdownitem'>
+        <div className='level dropdownitem__row'>
+          <div className='level-left'>
+            <img
+              src={process.env.PUBLIC_URL + '/icons/pokemons/' + this.props.name + '.png'}
+              className='dropdownitem__icon'
+              alt=''
+            />
+            <span>{this.pokemonNameBeautifier.beautifyName(this.props.name)}</span>
+          </div>
+          <span className='level-right dropdownitem__type has-text-right'>{this.props.type}</span>
         </div>
       </Link>
     )

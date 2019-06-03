@@ -1,4 +1,5 @@
 import React from 'react'
+import './PokemonTitle.css'
 
 interface PokemonTitleProps {
   name: string
@@ -9,13 +10,11 @@ export class PokemonTitle extends React.Component<PokemonTitleProps, any> {
 
   render() {
     return (
-      <section className='hero is-link pokemon__title'>
-        <div className='hero-body pokemon__title'>
-          <div className='container'>
-            <h1 className='title has-text-left'>
-              #{this.props.name} {this.props.nationalNumber}
-            </h1>
-          </div>
+      <section className='hero is-link'>
+        <div className='hero-body'>
+          <h1 className='pokemon__title title has-text-left'>
+            #{this.props.nationalNumber} {this.props.name}
+          </h1>
         </div>
       </section>
     )
