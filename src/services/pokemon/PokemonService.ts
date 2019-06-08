@@ -7,8 +7,8 @@ import { Pokemon } from '../../models/pokemon/Pokemon'
 export class PokemonService {
 
   // TODO: Eventually store in config file to offer both local and heroku backend hosting
-  LOCAL_BASE_URL = 'http://localhost:8080'
-  REMOTE_BASE_URL = 'http://gablalib-pokedex-core.herokuapp.com'
+  LOCAL_BASE_URL = 'https://localhost:8080'
+  REMOTE_BASE_URL = 'https://gablalib-pokedex-core.herokuapp.com'
 
   getPokemonList = () => pokemonList
 
