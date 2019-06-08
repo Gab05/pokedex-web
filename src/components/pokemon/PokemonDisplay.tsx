@@ -40,7 +40,8 @@ export class PokemonDisplay extends React.Component<any & RouteProps, PokemonSta
     return (
       <div className='pokemon_display'>
         <PokemonTitle
-          name={this.pokemonNameBeautifier.beautifyName(this.state.name)}
+          name={this.state.name}
+          formattedName={this.pokemonNameBeautifier.beautifyName(this.state.name)}
           nationalNumber={this.pokemonService.getNumberFromName(this.state.name)}
         />
         <div className='container'>
