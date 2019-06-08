@@ -18,23 +18,6 @@ describe('SearchBar', () => {
     })
   })
 
-  describe('when witnessing click events', () => {
-    const map: any = {}
-
-    beforeAll(() => {
-      document.addEventListener = jest.fn((event, callback) => {
-        map[event] = callback
-      })
-    })
-
-    it('should set showDropdown state to false', () => {
-      const component = mount(<SearchBar />)
-      component.setState({ showDropdown: true })
-      map.click()
-      expect(component.state('showDropdown')).toBeFalsy()
-    })
-  })
-
   describe('when input changes', () => {
     const component = shallow(<SearchBar />)
 

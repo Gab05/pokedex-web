@@ -26,12 +26,7 @@ export class SearchBar extends React.Component<any, SearchBarState> {
   }
 
   componentDidMount() {
-    document.addEventListener('click', (event: any) => {
-      if (event.target.matches('.searchbar__input'))
-        this.showDropdown()
-      else
-        this.hideDropdown()
-    })
+    document.addEventListener('click', (event: any) => this.handleClick(event))
   }
 
   render() {
@@ -54,6 +49,13 @@ export class SearchBar extends React.Component<any, SearchBarState> {
     this.setState(() => {
       return { query: new Query(newInputValue) }
     }, this.loadDropdown)
+  }
+
+  private handleClick = (event: any) => {
+    if (event.target.matches('.searchbar__input'))
+      this.showDropdown()
+    else
+      this.hideDropdown()
   }
 
   private loadDropdown = () => {
