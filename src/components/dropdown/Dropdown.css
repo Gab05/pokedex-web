@@ -1,5 +1,5 @@
 .dropdown__content {
-    overflow-y: scroll;
+    overflow-y: auto;
     position: absolute;
     background-color: deepskyblue;
     min-width: 160px;

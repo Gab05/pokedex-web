@@ -2,7 +2,7 @@ import 'chai'
 import 'mocha'
 import ServiceContainer from './ServiceContainer'
 import { PokemonNameBeautifier } from './nameBeautifiers/PokemonNameBeautifier'
-import { PokemonService } from './PokemonService'
+import { PokemonService } from './pokemon/PokemonService'
 
 const container = ServiceContainer
 

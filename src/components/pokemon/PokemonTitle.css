@@ -1,4 +1,8 @@
-.pokemon__title {
-    padding-left: 104px;
+.pokemon-title {
+    margin-bottom: 52px;
+}
+
+.pokemon-title__text {
+    padding-left: 52px;
     font-size: 170%;
 }

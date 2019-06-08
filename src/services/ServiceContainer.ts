@@ -2,7 +2,7 @@ import 'reflect-metadata'
 import { Container } from 'inversify'
 import { NameBeautifier } from './nameBeautifiers/NameBeautifier'
 import { PokemonNameBeautifier } from './nameBeautifiers/PokemonNameBeautifier'
-import { PokemonService } from './PokemonService'
+import { PokemonService } from './pokemon/PokemonService'
 
 const ServiceContainer = new Container()
 

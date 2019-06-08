@@ -2,7 +2,7 @@ import React from 'react'
 import { Dropdown } from '../dropdown/Dropdown'
 import { Query } from '../../models/Query'
 import ServiceContainer from '../../services/ServiceContainer'
-import { PokemonService } from '../../services/PokemonService'
+import { PokemonService } from '../../services/pokemon/PokemonService'
 import './SearchBar.css'
 
 interface SearchBarState {

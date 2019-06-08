@@ -1,7 +1,7 @@
 import 'reflect-metadata'
 import { injectable } from 'inversify'
-import pokemonList from '../assets/pokemonList'
-import { Pokemon } from '../models/pokemon/Pokemon'
+import pokemonList from '../../assets/pokemonList'
+import { Pokemon } from '../../models/pokemon/Pokemon'
 
 @injectable()
 export class PokemonService {

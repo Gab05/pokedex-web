@@ -1,3 +1,7 @@
 .pokemon_display {
     padding-top: 130px;
 }
+
+.notification {
+    padding: 1.25rem !important;
+}

@@ -1,4 +1,6 @@
 import React from 'react'
+import { PokemonService } from '../../services/pokemon/PokemonService'
+import ServiceContainer from '../../services/ServiceContainer'
 import { DropdownItem } from './DropdownItem'
 import { ResourceType } from '../../models/ResourceType'
 import './Dropdown.css'
@@ -8,20 +10,32 @@ interface DropdownProps {
 }
 
 export class Dropdown extends React.Component<DropdownProps, {}> {
-  render() {
-    const displayedItems: JSX.Element[] = []
+  private readonly pokemonService = ServiceContainer.get(PokemonService)
 
-    for (const name of this.props.pokemonNames)
-      displayedItems.push(<DropdownItem name={name} type={ResourceType.POKEMON} key={name} />)
-
-    displayedItems.sort((a, b) => {
-      return a.props.name.localeCompare(b.props.name)
-    })
-
+  public render() {
     return (
       <div className='dropdown__content'>
-        {displayedItems}
+        {this.dropdown()}
       </div>
     )
+  }
+
+  private dropdown() {
+    const dropdown: JSX.Element[] = []
+
+    for (const name of this.props.pokemonNames)
+      dropdown.push(
+        <DropdownItem name={name} type={ResourceType.POKEMON} key={name} />
+      )
+    this.sortByNumber(dropdown)
+
+    return dropdown
+  }
+
+  private sortByNumber(dropdown: JSX.Element[]) {
+    return dropdown.sort((a, b) => {
+      return this.pokemonService.getNumberFromName(a.props.name)
+        - this.pokemonService.getNumberFromName(b.props.name)
+    })
   }
 }
