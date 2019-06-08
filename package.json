@@ -18,7 +18,7 @@
     "reflect-metadata": "^0.1.13"
   },
   "scripts": {
-    "start": "node src/localServer.js",
+    "start": "node localServer.js",
     "dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
