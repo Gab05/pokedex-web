@@ -21,8 +21,8 @@ describe('Dropdown', () => {
     })
 
     it('should render DropdownItem elements by sorted pokemon name', () => {
-      expect(component.find(DropdownItem).at(0).props().name).toBe('tapu_bulu')
-      expect(component.find(DropdownItem).at(3).props().name).toBe('tapu_lele')
+      expect(component.find(DropdownItem).at(0).props().name).toBe('tapu_koko')
+      expect(component.find(DropdownItem).at(3).props().name).toBe('tapu_fini')
     })
   })
 })
