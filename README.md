@@ -1,4 +1,4 @@
-# pokedex-web
+# pokedex-web [![Build Status](https://travis-ci.org/Gab05/pokedex-web.svg?branch=master)](https://travis-ci.org/Gab05/pokedex-web)
 ## Pokedex web application using React and Typescript
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
