@@ -3,6 +3,12 @@
 }
 
 .pokemon-title__text {
+    margin-bottom: 0 !important;
     padding-left: 52px;
     font-size: 170%;
+}
+
+.pokemon-title__icon {
+    margin-left: 10px;
+    transform: scale(1.5);
 }
