@@ -26,7 +26,12 @@ export class SearchBar extends React.Component<any, SearchBarState> {
   }
 
   componentDidMount() {
-    document.addEventListener('click', this.hideDropdown)
+    document.addEventListener('click', (event: any) => {
+      if (event.target.matches('.searchbar__input'))
+        this.showDropdown()
+      else
+        this.hideDropdown()
+    })
   }
 
   render() {
@@ -43,7 +48,7 @@ export class SearchBar extends React.Component<any, SearchBarState> {
     )
   }
 
-  updateQuery = (event: any) => {
+  private readonly updateQuery = (event: any) => {
     const newInputValue = event.target.value
 
     this.setState(() => {
@@ -51,14 +56,14 @@ export class SearchBar extends React.Component<any, SearchBarState> {
     }, this.loadDropdown)
   }
 
-  loadDropdown = () => {
+  private loadDropdown = () => {
     if (this.state.query.value.length >= 2)
       this.findMatchingPokemonNames()
     else
       this.hideDropdown()
   }
 
-  findMatchingPokemonNames = () => {
+  private findMatchingPokemonNames = () => {
     this.setState((state) => {
       return {
         matchingPokemonNames: this.pokemonService.getPokemonList().filter((name: string) => {
@@ -68,13 +73,13 @@ export class SearchBar extends React.Component<any, SearchBarState> {
     }, this.showDropdown)
   }
 
-  showDropdown = () => {
+  private showDropdown = () => {
     this.setState(() => {
       return { showDropdown: true }
     })
   }
 
-  hideDropdown = () => {
+  private hideDropdown = () => {
     this.setState(() => {
       return { showDropdown: false }
     })
