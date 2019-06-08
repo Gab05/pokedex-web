@@ -54,8 +54,8 @@ export class PokemonDisplay extends React.Component<any & RouteProps, PokemonSta
                   <div className='tile'>
                     <div className='tile is-parent'>
                       <article className='tile is-child is-half notification is-info'>
-                        <p className='title has-text-centered'> Type</p>
-                        <TypeDisplay types={this.state.pokemon!.typing} />
+                        <p className='title has-text-centered'>Type</p>
+                        {this.state.pokemon.typing ? <TypeDisplay types={this.state.pokemon.typing} /> : null}
                       </article>
                     </div>
                     <div className='tile is-parent'>

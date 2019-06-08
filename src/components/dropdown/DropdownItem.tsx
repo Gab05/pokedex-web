@@ -31,7 +31,7 @@ export class DropdownItem extends React.Component<DropdownItemProps, DropdownIte
           <div className='level-left'>
             <img
               src={process.env.PUBLIC_URL + '/icons/pokemons/' + this.props.name + '.png'}
-              className='dropdownitem__icon'
+              className='level-item dropdownitem__icon'
               alt=''
             />
             <span>{this.pokemonNameBeautifier.beautifyName(this.props.name)}</span>

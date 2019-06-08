@@ -8,14 +8,10 @@ interface TypeDisplayProps {
 export class TypeDisplay extends React.Component<TypeDisplayProps, any> {
 
   render() {
-    const typeDisplay = []
-
-    for (const type in this.props.types)
-      typeDisplay.push(<div className='subtitle'>{type}</div>)
-
     return (
       <div>
-        {typeDisplay}
+        {this.props.types ? <div className='subtitle'>{this.props.types[0]}</div> : null}
+        {this.props.types ? <div className='subtitle'>{this.props.types[1] ? this.props.types[1] : null}</div> : null}
       </div>
     )
   }
