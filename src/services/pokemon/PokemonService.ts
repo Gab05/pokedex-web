@@ -10,12 +10,16 @@ export class PokemonService {
   LOCAL_BASE_URL = 'https://localhost:8080'
   REMOTE_BASE_URL = 'https://gablalib-pokedex-core.herokuapp.com'
 
-  getPokemonList = () => pokemonList
+  public getPokemonList = () => pokemonList
 
-  getNumberFromName = (name: string): number => pokemonList.indexOf(name) + 1
+  public getNumberFromName = (name: string): number => pokemonList.indexOf(name) + 1
 
-  fetchPokemonByName = (name: string) => fetch(this.REMOTE_BASE_URL + '/pokemons/' + name)
+  public fetchPokemonByName = (name: string) => fetch(this.REMOTE_BASE_URL + '/pokemons/' + name)
     .then((response: Response) => {
       return response.json()
     }).then((pokemon: Pokemon) => pokemon)
+
+  public getNormalSpriteUrl = (name: string) => this.REMOTE_BASE_URL + '/pokemons/' + name + '/sprite/normal'
+
+  public getShinySpriteUrl = (name: string) => this.REMOTE_BASE_URL + '/pokemons/' + name + '/sprite/shiny'
 }

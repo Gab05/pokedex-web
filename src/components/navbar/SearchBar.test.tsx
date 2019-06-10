@@ -1,6 +1,6 @@
 import React from 'react'
 import 'mocha'
-import { mount, shallow } from 'enzyme'
+import { shallow } from 'enzyme'
 import { Query } from '../../models/Query'
 import { Dropdown } from '../dropdown/Dropdown'
 import { SearchBar } from './SearchBar'

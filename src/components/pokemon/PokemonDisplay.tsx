@@ -50,7 +50,7 @@ export class PokemonDisplay extends React.Component<any & RouteProps, PokemonSta
               <div className='tile'>
                 <div className='tile is-vertical is-half'>
                   <div className='tile'>
-                    <PokemonSprites name={this.props.name} />
+                    <PokemonSprites name={this.state.name} />
                   </div>
                   <div className='tile'>
                     <div className='tile is-parent'>

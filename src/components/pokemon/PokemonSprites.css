@@ -1,0 +1,8 @@
+.pokemon-sprite__img {
+    transform: scale(1.1);
+}
+
+.pokemon-sprite__label {
+    font-size: 70%;
+    font-style: italic;
+}
