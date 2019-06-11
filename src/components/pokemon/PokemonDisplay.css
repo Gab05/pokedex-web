@@ -1,3 +1,9 @@
+@media (max-width: 960px) {
+    .is-ancestor {
+        padding: 0 30px 0 30px;
+    }
+}
+
 .pokemon_display {
     padding-top: 130px;
 }

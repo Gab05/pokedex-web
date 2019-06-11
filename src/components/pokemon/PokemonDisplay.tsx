@@ -38,11 +38,11 @@ export class PokemonDisplay extends React.Component<any & RouteProps, PokemonSta
 
   render() {
     return (
-      <div className='pokemon_display'>
+      <div className='pokemon_display is-mobile'>
         <PokemonTitle
           name={this.state.name}
           formattedName={this.pokemonNameBeautifier.beautifyName(this.state.name)}
-          nationalNumber={this.pokemonService.getNumberFromName(this.state.name)}
+          nationalNumber={this.state.pokemon.nationalNumber ? this.state.pokemon.nationalNumber: undefined}
         />
         <div className='container'>
           <div className='tile is-ancestor'>

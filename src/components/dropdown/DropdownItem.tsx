@@ -3,7 +3,6 @@ import ServiceContainer from '../../services/ServiceContainer'
 import { NameBeautifier } from '../../services/nameBeautifiers/NameBeautifier'
 import { ResourceType } from '../../models/ResourceType'
 import { PokemonNameBeautifier } from '../../services/nameBeautifiers/PokemonNameBeautifier'
-import { Link } from 'react-router-dom'
 import './DropdownItem.css'
 
 interface DropdownItemProps {
@@ -26,7 +25,7 @@ export class DropdownItem extends React.Component<DropdownItemProps, DropdownIte
 
   render() {
     return (
-      <Link to={`/${this.props.type.toLowerCase()}/${this.props.name}`} className='dropdownitem'>
+      <a href={'/'+this.props.type.toLowerCase() + '/' + this.props.name} className='dropdownitem'>
         <div className='level dropdownitem__row'>
           <div className='level-left'>
             <img
@@ -38,7 +37,7 @@ export class DropdownItem extends React.Component<DropdownItemProps, DropdownIte
           </div>
           <span className='level-right dropdownitem__type has-text-right'>{this.props.type}</span>
         </div>
-      </Link>
+      </a>
     )
   }
 }

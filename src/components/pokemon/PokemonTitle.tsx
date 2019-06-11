@@ -4,7 +4,7 @@ import './PokemonTitle.css'
 interface PokemonTitleProps {
   name: string
   formattedName: string
-  nationalNumber: number
+  nationalNumber?: number
 }
 
 export class PokemonTitle extends React.Component<PokemonTitleProps, any> {
@@ -15,7 +15,7 @@ export class PokemonTitle extends React.Component<PokemonTitleProps, any> {
         <div className='hero-body level'>
           <div className='level-left'>
             <h1 className='pokemon-title__text title level-item has-text-left'>
-              #{this.props.nationalNumber} {this.props.formattedName}
+              #{this.props.nationalNumber ? this.props.nationalNumber: ''} {this.props.formattedName}
             </h1>
             <img
               src={process.env.PUBLIC_URL + '/icons/pokemons/' + this.props.name + '.png'}
