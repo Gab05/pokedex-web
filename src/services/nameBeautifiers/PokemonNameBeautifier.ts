@@ -6,7 +6,7 @@ import { injectable } from 'inversify'
 export class PokemonNameBeautifier implements NameBeautifier {
 
   beautifyName = (name: string): string => {
-    name = name.replace('_', ' ')
+    name = name.replace(/_/g, ' ')
     name = this.capitalizeEachWord(name)
     return this.handlePokemonNameExceptions(name)
   }
