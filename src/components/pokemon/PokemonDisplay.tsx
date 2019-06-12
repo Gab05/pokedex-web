@@ -71,7 +71,6 @@ export class PokemonDisplay extends React.Component<any & RouteProps, PokemonSta
                   <article className='tile is-child notification is-info'>
                     <p className='title'>Base stats</p>
                     <StatsDisplay stats={this.state.pokemon.baseStats}/>
-                    <figure className='image is-4by3'/>
                   </article>
                 </div>
               </div>
