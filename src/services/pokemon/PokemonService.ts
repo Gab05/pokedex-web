@@ -12,8 +12,6 @@ export class PokemonService {
 
   public getPokemonList = () => pokemonList
 
-  public getNumberFromName = (name: string): number => pokemonList.indexOf(name) + 1
-
   public fetchPokemonByName = (name: string) => fetch(this.REMOTE_BASE_URL + '/pokemons/' + name)
     .then((response: Response) => {
       return response.json()

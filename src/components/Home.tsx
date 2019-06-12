@@ -3,7 +3,6 @@ import pikachuLogo from '../assets/pikachulogo.png'
 import './Home.css'
 
 export class Home extends React.Component {
-
   render() {
     return (
       <div className='home__body'>
