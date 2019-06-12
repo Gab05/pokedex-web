@@ -1,6 +1,6 @@
 import React from 'react'
 import 'mocha'
-import { mount, shallow } from 'enzyme'
+import { shallow } from 'enzyme'
 import { Dropdown } from './Dropdown'
 import { DropdownItem } from './DropdownItem'
 
@@ -18,11 +18,6 @@ describe('Dropdown', () => {
 
     it('should render the same amount of DropdownItem', () => {
       expect(component.find(DropdownItem).length).toBe(4)
-    })
-
-    it('should render DropdownItem elements by sorted pokemon name', () => {
-      expect(component.find(DropdownItem).at(0).props().name).toBe('tapu_koko')
-      expect(component.find(DropdownItem).at(3).props().name).toBe('tapu_fini')
     })
   })
 })
