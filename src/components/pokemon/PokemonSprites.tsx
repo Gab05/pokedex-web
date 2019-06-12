@@ -20,18 +20,9 @@ export class PokemonSprites extends React.Component<PokemonSpritesProps, Pokemon
     super(props)
 
     this.state = {
-      normalUrl: '',
-      shinyUrl: '',
+      normalUrl: this.pokemonService.getNormalSpriteUrl(props.name),
+      shinyUrl: this.pokemonService.getShinySpriteUrl(props.name),
     }
-  }
-
-  componentDidMount(): void {
-    this.setState((_, props) => {
-      return {
-        normalUrl: this.pokemonService.getNormalSpriteUrl(props.name),
-        shinyUrl: this.pokemonService.getShinySpriteUrl(props.name),
-      }
-    })
   }
 
   render() {

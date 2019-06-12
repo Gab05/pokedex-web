@@ -8,6 +8,7 @@ import { TypeDisplay } from '../type/TypeDisplay'
 import { PokemonSprites } from './PokemonSprites'
 import { PokemonTitle } from './PokemonTitle'
 import './PokemonDisplay.css'
+import { StatsDisplay } from './Stats/StatsDisplay'
 
 interface PokemonState {
   name: string
@@ -42,7 +43,7 @@ export class PokemonDisplay extends React.Component<any & RouteProps, PokemonSta
         <PokemonTitle
           name={this.state.name}
           beautifiedName={this.pokemonNameBeautifier.beautifyName(this.state.name)}
-          nationalNumber={this.state.pokemon.nationalNumber ? this.state.pokemon.nationalNumber: undefined}
+          nationalNumber={this.state.pokemon.nationalNumber}
         />
         <div className='container'>
           <div className='tile is-ancestor'>
@@ -69,7 +70,7 @@ export class PokemonDisplay extends React.Component<any & RouteProps, PokemonSta
                 <div className='tile is-parent'>
                   <article className='tile is-child notification is-info'>
                     <p className='title'>Base stats</p>
-                    <p className='subtitle'>With an image</p>
+                    <StatsDisplay stats={this.state.pokemon.baseStats}/>
                     <figure className='image is-4by3'/>
                   </article>
                 </div>
