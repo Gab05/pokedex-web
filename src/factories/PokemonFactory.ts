@@ -1,3 +1,4 @@
+import 'reflect-metadata'
 import { injectable } from 'inversify'
 import { Move } from '../models/move/Move'
 import { Abilities } from '../models/pokemon/ability/Abilities'
