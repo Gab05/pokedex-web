@@ -1,23 +1,25 @@
 import React from 'react'
+import { PokemonFactory } from '../../factories/PokemonFactory'
 import { Pokemon } from '../../models/pokemon/Pokemon'
 import { PokemonNameBeautifier } from '../../services/nameBeautifiers/PokemonNameBeautifier'
 import ServiceContainer from '../../services/ServiceContainer'
 import { PokemonService } from '../../services/pokemon/PokemonService'
 import { RouteProps } from 'react-router'
-import { TypeDisplay } from '../type/TypeDisplay'
+import { TypesDisplay } from '../type/TypesDisplay'
 import { PokemonSprites } from './PokemonSprites'
 import { PokemonTitle } from './PokemonTitle'
 import './PokemonDisplay.css'
 import { StatsDisplay } from './Stats/StatsDisplay'
 
-interface PokemonState {
+interface PokemonDisplayState {
   name: string
   pokemon: Pokemon
 }
 
-export class PokemonDisplay extends React.Component<any & RouteProps, PokemonState> {
+export class PokemonDisplay extends React.Component<any & RouteProps, PokemonDisplayState> {
 
   private readonly pokemonService = ServiceContainer.get(PokemonService)
+  private readonly pokemonFactory = ServiceContainer.get(PokemonFactory)
   private readonly pokemonNameBeautifier = ServiceContainer.get(PokemonNameBeautifier)
 
   constructor(props: any) {
@@ -25,7 +27,7 @@ export class PokemonDisplay extends React.Component<any & RouteProps, PokemonSta
 
     this.state = {
       name: this.props.match.params.name,
-      pokemon: {},
+      pokemon: this.pokemonFactory.createBlankPokemon(),
     }
   }
 
@@ -56,20 +58,20 @@ export class PokemonDisplay extends React.Component<any & RouteProps, PokemonSta
                   <div className='tile'>
                     <div className='tile is-parent'>
                       <article className='tile is-child is-half notification is-info'>
-                        <p className='title has-text-centered'>Type</p>
-                        {this.state.pokemon.typing ? <TypeDisplay types={this.state.pokemon.typing} /> : null}
+                        <p className='subtitle display__name'>TYPE</p>
+                        <TypesDisplay types={this.state.pokemon.typing}/>
                       </article>
                     </div>
                     <div className='tile is-parent'>
                       <article className='tile is-child is-half notification is-info'>
-                        <p className='title'>Abilities</p>
+                        <p className='subtitle display__name'>ABILITIES</p>
                       </article>
                     </div>
                   </div>
                 </div>
                 <div className='tile is-parent'>
                   <article className='tile is-child notification is-info'>
-                    <p className='title'>Base stats</p>
+                    <p className='subtitle display__name'>BASE STATS</p>
                     <StatsDisplay stats={this.state.pokemon.baseStats}/>
                   </article>
                 </div>
@@ -77,10 +79,6 @@ export class PokemonDisplay extends React.Component<any & RouteProps, PokemonSta
               <div className='tile is-parent'>
                 <article className='tile is-child notification is-dark'>
                   <p className='title'>Move List</p>
-                  <p className='subtitle'>Aligned with the right tile</p>
-                  <div className='content'>
-                    content
-                  </div>
                 </article>
               </div>
             </div>

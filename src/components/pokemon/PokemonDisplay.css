@@ -11,3 +11,8 @@
 .notification {
     padding: 1.25rem !important;
 }
+
+.display__name {
+    font-size: 60%;
+    font-style: italic;
+}

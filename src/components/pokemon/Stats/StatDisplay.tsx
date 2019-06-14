@@ -19,8 +19,8 @@ export class StatDisplay extends React.Component<StatDisplayProps, any> {
   render() {
     return (
       <div className='level stat__display'>
-          <h2 className='stat__name level-item has-text-left'>{this.props.name}</h2>
-          <h2 className='stat__value level-item has-text-right'>{this.props.value}</h2>
+          <p className='stat__name level-item has-text-left'>{this.props.name}</p>
+          <p className='stat__value level-item has-text-right'>{this.props.value}</p>
           <progress
             className={'progress level-item stat__bar box ' + this.calculateColor(this.props.value, 200)}
             value={this.props.value}

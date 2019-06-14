@@ -3,7 +3,7 @@
 }
 
 .stat__name {
-    width: 15%;
+    width: 17%;
     font-size: 60%;
     font-style: italic;
 }
@@ -13,5 +13,5 @@
 }
 
 .stat__bar {
-    width: 65% !important;
+    width: 63% !important;
 }
