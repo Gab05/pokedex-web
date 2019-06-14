@@ -1,0 +1,17 @@
+.stat__display {
+    margin-bottom: 0 !important;
+}
+
+.stat__name {
+    width: 15%;
+    font-size: 60%;
+    font-style: italic;
+}
+
+.stat__value {
+    width: 20%;
+}
+
+.stat__bar {
+    width: 65% !important;
+}
