@@ -1,5 +1,6 @@
 import React from 'react'
 import { Type } from '../../models/type/Type'
+import { LoadingSpinner } from '../LoadingSpinner'
 import { TypeDisplay } from './TypeDisplay'
 
 interface TypesDisplayProps {
@@ -9,9 +10,10 @@ interface TypesDisplayProps {
 export class TypesDisplay extends React.Component<TypesDisplayProps, any> {
 
   render() {
+    const displayTypes = this.displayTypes()
     return (
       <div className='container'>
-        {this.displayTypes()}
+        {displayTypes.length ? displayTypes: <LoadingSpinner/>}
       </div>
     )
   }

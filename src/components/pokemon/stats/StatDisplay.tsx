@@ -1,5 +1,6 @@
 import React from 'react'
 import './StatDisplay.css'
+import { LoadingSpinner } from '../../LoadingSpinner'
 
 interface StatDisplayProps {
   name: string
@@ -19,11 +20,15 @@ export class StatDisplay extends React.Component<StatDisplayProps, any> {
   render() {
     return (
       <div className='level stat__display'>
-          <p className='stat__name level-item has-text-left'>{this.props.name}</p>
-          <p className='stat__value level-item has-text-right'>{this.props.value}</p>
+          <p className='stat__name level-item has-text-left'>
+            {this.props.name}
+          </p>
+          <p className='stat__value level-item has-text-right'>
+            {this.props.value ? this.props.value : <LoadingSpinner/>}
+          </p>
           <progress
             className={'progress level-item stat__bar box ' + this.calculateColor(this.props.value, 200)}
-            value={this.props.value}
+            value={this.props.value ? this.props.value : undefined}
             max={200}
           />
       </div>
@@ -33,6 +38,6 @@ export class StatDisplay extends React.Component<StatDisplayProps, any> {
   private calculateColor = (actual: number, max: number): string => {
     return actual <= max
       ? this.COLOR_CLASS_MAP[Math.floor((actual/max) * this.COLOR_CLASS_MAP.length)]
-      : 'is-link'
+      : this.COLOR_CLASS_MAP[this.COLOR_CLASS_MAP.length - 1]
   }
 }

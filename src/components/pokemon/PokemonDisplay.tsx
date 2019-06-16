@@ -6,10 +6,12 @@ import ServiceContainer from '../../services/ServiceContainer'
 import { PokemonService } from '../../services/pokemon/PokemonService'
 import { RouteProps } from 'react-router'
 import { TypesDisplay } from '../type/TypesDisplay'
+import { EggStepsDisplay } from './basic/EggStepsDisplay'
+import { ExpGrowthDisplay } from './basic/ExpGrowthDisplay'
 import { PokemonSprites } from './PokemonSprites'
 import { PokemonTitle } from './PokemonTitle'
 import './PokemonDisplay.css'
-import { StatsDisplay } from './Stats/StatsDisplay'
+import { StatsDisplay } from './stats/StatsDisplay'
 
 interface PokemonDisplayState {
   name: string
@@ -64,7 +66,10 @@ export class PokemonDisplay extends React.Component<any & RouteProps, PokemonDis
                     </div>
                     <div className='tile is-parent'>
                       <article className='tile is-child is-half notification is-info'>
-                        <p className='subtitle display__name'>ABILITIES</p>
+                        <p className='display__name'>EGG STEPS</p>
+                        <EggStepsDisplay steps={this.state.pokemon.baseEggSteps}/>
+                        <p className='display__name'>EXP GROWTH</p>
+                        <ExpGrowthDisplay exp={this.state.pokemon.baseExpGrowth}/>
                       </article>
                     </div>
                   </div>
