@@ -10,8 +10,21 @@
 
 .stat__value {
     width: 10%;
+    font-weight: bold;
 }
 
 .stat__bar {
     width: 70% !important;
+}
+
+.progress.is-orange::-webkit-progress-value {
+    background-color:#F59900;
+}
+
+.progress.is-orange::-moz-progress-bar {
+    background-color:#F59900;
+}
+
+.progress.is-orange::-ms-fill{
+    background-color:#F59900;
 }

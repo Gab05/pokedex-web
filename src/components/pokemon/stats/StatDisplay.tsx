@@ -11,6 +11,7 @@ export class StatDisplay extends React.Component<StatDisplayProps, any> {
 
   private COLOR_CLASS_MAP = [
     'is-danger',
+    'is-orange',
     'is-warning',
     'is-success',
     'is-primary',

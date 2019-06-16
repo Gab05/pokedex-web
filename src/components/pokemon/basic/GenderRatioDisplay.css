@@ -1,0 +1,18 @@
+.gender-ratio__male {
+    color: #2430D7;
+    font-weight: bold;
+}
+
+.gender-ratio__female {
+    color: #D7204F;
+    font-weight: bold;
+}
+
+.gender-ratio__colon {
+    color: darkslategrey;
+    font-size: 90%;
+}
+
+.gender-ratio__value {
+    font-weight: bold;
+}
