@@ -1,6 +1,6 @@
 import React from 'react'
-import './StatDisplay.css'
 import { LoadingSpinner } from '../../LoadingSpinner'
+import './StatDisplay.css'
 
 interface StatDisplayProps {
   name: string
@@ -19,7 +19,7 @@ export class StatDisplay extends React.Component<StatDisplayProps, any> {
 
   render() {
     return (
-      <div className='level stat__display'>
+      <div className='stat__display level is-mobile'>
           <p className='stat__name level-item has-text-left'>
             {this.props.name}
           </p>

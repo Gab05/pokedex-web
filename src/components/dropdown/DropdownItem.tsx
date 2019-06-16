@@ -26,7 +26,7 @@ export class DropdownItem extends React.Component<DropdownItemProps, DropdownIte
   render() {
     return (
       <a href={'/'+this.props.type.toLowerCase() + '/' + this.props.name} className='dropdownitem'>
-        <div className='level dropdownitem__row'>
+        <div className='dropdownitem__row level is-mobile'>
           <div className='level-left'>
             <div className='level-item dropdownitem__icon-container'>
               <img

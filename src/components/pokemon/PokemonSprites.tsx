@@ -1,8 +1,8 @@
 import React from 'react'
-import { PokemonService } from '../../services/pokemon/PokemonService'
 import ServiceContainer from '../../services/ServiceContainer'
-import './PokemonSprites.css'
+import { PokemonService } from '../../services/pokemon/PokemonService'
 import { LoadingSpinner } from '../LoadingSpinner'
+import './PokemonSprites.css'
 
 interface PokemonSpritesProps {
   name: string

@@ -1,17 +1,16 @@
 import React from 'react'
-import { PokemonFactory } from '../../factories/PokemonFactory'
-import { Pokemon } from '../../models/pokemon/Pokemon'
-import { PokemonNameBeautifier } from '../../services/nameBeautifiers/PokemonNameBeautifier'
 import ServiceContainer from '../../services/ServiceContainer'
-import { PokemonService } from '../../services/pokemon/PokemonService'
 import { RouteProps } from 'react-router'
+import { Pokemon } from '../../models/pokemon/Pokemon'
+import { PokemonFactory } from '../../factories/PokemonFactory'
+import { PokemonNameBeautifier } from '../../services/nameBeautifiers/PokemonNameBeautifier'
+import { PokemonService } from '../../services/pokemon/PokemonService'
 import { TypesDisplay } from '../type/TypesDisplay'
-import { EggStepsDisplay } from './basic/EggStepsDisplay'
-import { ExpGrowthDisplay } from './basic/ExpGrowthDisplay'
+import { WeightDisplay } from './basic/WeightDisplay'
 import { PokemonSprites } from './PokemonSprites'
 import { PokemonTitle } from './PokemonTitle'
-import './PokemonDisplay.css'
 import { StatsDisplay } from './stats/StatsDisplay'
+import './PokemonDisplay.css'
 
 interface PokemonDisplayState {
   name: string
@@ -50,51 +49,49 @@ export class PokemonDisplay extends React.Component<any & RouteProps, PokemonDis
           nationalNumber={this.state.pokemon.nationalNumber}
         />
         <div className='container'>
-          <div className='tile is-ancestor'>
-            <div className='tile is-vertical is-8'>
+          <div className='tile is-ancestor is-vertical'>
+            <div className='tile is-12'>
               <div className='tile'>
-                <div className='tile is-vertical is-half'>
+                <div className='tile is-vertical is-4'>
                   <div className='tile'>
                     <PokemonSprites name={this.state.name} />
                   </div>
                   <div className='tile'>
                     <div className='tile is-parent'>
                       <article className='tile is-child is-half notification is-info'>
-                        <p className='subtitle display__name'>TYPE</p>
+                        <p className='display__name type-title'>TYPE</p>
                         <TypesDisplay types={this.state.pokemon.typing}/>
                       </article>
                     </div>
                     <div className='tile is-parent'>
                       <article className='tile is-child is-half notification is-info'>
-                        <p className='display__name'>EGG STEPS</p>
-                        <EggStepsDisplay steps={this.state.pokemon.baseEggSteps}/>
-                        <p className='display__name'>EXP GROWTH</p>
-                        <ExpGrowthDisplay exp={this.state.pokemon.baseExpGrowth}/>
+                        <p className='display__name weight-title'>WEIGHT</p>
+                        <WeightDisplay weight={this.state.pokemon.weight}/>
                       </article>
                     </div>
                   </div>
                 </div>
-                <div className='tile is-parent'>
+                <div className='tile is-parent is-5'>
                   <article className='tile is-child notification is-info'>
                     <p className='subtitle display__name'>BASE STATS</p>
                     <StatsDisplay stats={this.state.pokemon.baseStats}/>
                   </article>
                 </div>
-              </div>
-              <div className='tile is-parent'>
-                <article className='tile is-child notification is-dark'>
-                  <p className='title'>Move List</p>
-                </article>
+                <div className='tile is-parent is-3'>
+                  <article className='tile is-child notification is-info'>
+                    <div className='content'>
+                      <p className='title'>Basic info</p>
+                      <div className='content'>
+                        Base eggsteps...
+                      </div>
+                    </div>
+                  </article>
+                </div>
               </div>
             </div>
-            <div className='tile is-parent'>
-              <article className='tile is-child notification is-info'>
-                <div className='content'>
-                  <p className='title'>Basic info</p>
-                  <div className='content'>
-                    Base eggsteps...
-                  </div>
-                </div>
+            <div className='tile is-parent is-12'>
+              <article className='tile is-child notification is-dark'>
+                <p className='title'>Move List</p>
               </article>
             </div>
           </div>
