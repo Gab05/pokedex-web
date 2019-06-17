@@ -1,19 +1,22 @@
 import React from 'react'
-import { Dropdown } from '../dropdown/Dropdown'
-import { Query } from '../../models/Query'
 import ServiceContainer from '../../services/ServiceContainer'
 import { PokemonService } from '../../services/pokemon/PokemonService'
+import { MoveService } from '../../services/move/MoveService'
+import { Dropdown } from '../dropdown/Dropdown'
+import { Query } from '../../models/Query'
 import './SearchBar.css'
 
 interface SearchBarState {
   query: Query
   showDropdown: boolean
   matchingPokemonNames: string[]
+  matchingMoveNames: string[]
 }
 
 export class SearchBar extends React.Component<any, SearchBarState> {
 
   private readonly pokemonService = ServiceContainer.get(PokemonService)
+  private readonly moveService = ServiceContainer.get(MoveService)
 
   constructor(props: any) {
     super(props)
@@ -21,6 +24,7 @@ export class SearchBar extends React.Component<any, SearchBarState> {
       query: new Query(''),
       showDropdown: false,
       matchingPokemonNames: [],
+      matchingMoveNames: [],
     }
     this.updateQuery = this.updateQuery.bind(this)
   }
@@ -38,7 +42,7 @@ export class SearchBar extends React.Component<any, SearchBarState> {
           placeholder='Look for a Pokémon / Move ...'
           className='searchbar__input input is-rounded'
         />
-        {this.state.showDropdown ? <Dropdown pokemonNames={this.state.matchingPokemonNames}/> : null}
+        {this.state.showDropdown ? this.renderDropdown() : null}
       </div>
     )
   }
@@ -59,16 +63,27 @@ export class SearchBar extends React.Component<any, SearchBarState> {
   }
 
   private loadDropdown = () => {
-    if (this.state.query.value.length >= 2)
+    if (this.state.query.value.length >= 2) {
       this.findMatchingPokemonNames()
-    else
+      this.findMatchingMoveNames()
+    } else
       this.hideDropdown()
   }
 
   private findMatchingPokemonNames = () => {
-    this.setState((state) => {
+    this.setState((state: SearchBarState) => {
       return {
         matchingPokemonNames: this.pokemonService.getPokemonList().filter((name: string) => {
+          return state.query.isASubsequenceOf(name)
+        }),
+      }
+    }, this.showDropdown)
+  }
+
+  private findMatchingMoveNames = () => {
+    this.setState((state: SearchBarState) => {
+      return {
+        matchingMoveNames: this.moveService.getMoveList().filter((name: string) => {
           return state.query.isASubsequenceOf(name)
         }),
       }
@@ -85,5 +100,9 @@ export class SearchBar extends React.Component<any, SearchBarState> {
     this.setState(() => {
       return { showDropdown: false }
     })
+  }
+
+  private renderDropdown = () => {
+    return <Dropdown pokemonNames={this.state.matchingPokemonNames} moveNames={this.state.matchingMoveNames}/>
   }
 }

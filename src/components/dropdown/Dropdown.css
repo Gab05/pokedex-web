@@ -1,7 +1,7 @@
 .dropdown__content {
     overflow-y: auto;
     position: absolute;
-    background-color: deepskyblue;
+    background-color: #3273dc;
     min-width: 160px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     z-index: 1;
@@ -9,8 +9,4 @@
     width: 180%;
     max-height: 1000%;
     border-radius: 5px;
-}
-
-.dropdown__content::-webkit-scrollbar-track {
-    background: deepskyblue;
 }

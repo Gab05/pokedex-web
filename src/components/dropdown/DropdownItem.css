@@ -13,6 +13,7 @@
 
 .dropdownitem__row {
     padding: 2px 0 2px 10px;
+    border-radius: 5px;
     margin: 4px;
 }
 
@@ -31,4 +32,12 @@
     color: grey !important;
     font-style: italic;
     font-size: 80%;
+}
+
+.pokemon {
+    background-color: deepskyblue;
+}
+
+.move {
+    background-color: #40F54C;
 }

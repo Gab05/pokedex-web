@@ -1,0 +1,10 @@
+.move-title {
+    margin-bottom: 52px;
+}
+
+@media (min-width: 800px) {
+    .move-title__text {
+        margin-bottom: 0 !important;
+        padding-left: 52px;
+    }
+}
