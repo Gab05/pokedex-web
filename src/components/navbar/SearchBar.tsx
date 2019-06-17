@@ -69,7 +69,7 @@ export class SearchBar extends React.Component<any, SearchBarState> {
     this.setState((state) => {
       return {
         matchingPokemonNames: this.pokemonService.getPokemonList().filter((name: string) => {
-          return state.query.isASubsequenceOf(name.replace(/ /g, ''))
+          return state.query.isASubsequenceOf(name)
         }),
       }
     }, this.showDropdown)

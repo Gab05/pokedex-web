@@ -90,10 +90,17 @@ export class PokemonDisplay extends React.Component<any & RouteProps, PokemonDis
                 </div>
               </div>
             </div>
-            <div className='tile is-parent is-12'>
-              <article className='tile is-child notification is-dark'>
-                <p className='title'>Move List</p>
-              </article>
+            <div className='tile is-12'>
+              <div className='tile is-parent 4'>
+                <article className='tile is-child notification is-info'>
+                  <p className='subtitle display__name'>ABILITIES (soon!)</p>
+                </article>
+              </div>
+              <div className='tile is-parent is-8'>
+                <article className='tile is-child notification is-dark'>
+                  <p className='subtitle display__name'>MOVES (soon!)</p>
+                </article>
+              </div>
             </div>
           </div>
         </div>

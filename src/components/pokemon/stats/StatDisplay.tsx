@@ -37,7 +37,7 @@ export class StatDisplay extends React.Component<StatDisplayProps, any> {
   }
 
   private calculateColor = (actual: number, max: number): string => {
-    return actual <= max
+    return actual < max
       ? this.COLOR_CLASS_MAP[Math.floor((actual/max) * this.COLOR_CLASS_MAP.length)]
       : this.COLOR_CLASS_MAP[this.COLOR_CLASS_MAP.length - 1]
   }

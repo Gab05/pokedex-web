@@ -10,7 +10,7 @@ export class CaptureRateDisplay extends React.Component<CaptureRateDisplayProps,
 
   render() {
     return (
-      <div className='level'>
+      <div className='level is-mobile'>
         <span className='capture-rate__title level-item'>
           Capture rate:
         </span>

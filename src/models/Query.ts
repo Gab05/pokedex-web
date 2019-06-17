@@ -6,11 +6,12 @@ export class Query {
   }
 
   isASubsequenceOf = (other: string): boolean  => {
+    const that = this.value.replace(/ /g, '')
     let indexThis = 0
 
-    for (let indexOther = 0; indexOther < other.length && indexThis < this.value.length; indexOther++)
-      if (this.value[indexThis] === other[indexOther]) indexThis++
+    for (let indexOther = 0; indexOther < other.length && indexThis < that.length; indexOther++)
+      if (that[indexThis] === other[indexOther]) indexThis++
 
-    return (indexThis === this.value.length)
+    return (indexThis === that.length)
   }
 }
