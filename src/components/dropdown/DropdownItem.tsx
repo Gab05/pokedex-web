@@ -59,7 +59,7 @@ export class DropdownItem extends React.Component<DropdownItemProps, DropdownIte
     return (
       <div className='level-item dropdownitem__icon-container'>
         <img
-          src={process.env.PUBLIC_URL + '/icons/types/' + this.props.type! + '.gif'}
+          src={process.env.PUBLIC_URL + '/icons/types/' + this.props.type!.toLowerCase() + '.gif'}
           className='dropdownitem__icon'
           alt=''
         />
