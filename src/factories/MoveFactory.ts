@@ -12,7 +12,7 @@ export class MoveFactory {
     type: Type.NONE,
     power: 0,
     accuracy: 0,
-    category: MoveCategory.OTHER,
+    category: MoveCategory.NONE,
     maxPP: 0,
     description: '',
     zMovePower: 0,

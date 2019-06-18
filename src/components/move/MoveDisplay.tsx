@@ -1,14 +1,15 @@
 import React from 'react'
+import ServiceContainer from '../../services/ServiceContainer'
 import { RouteProps } from 'react-router'
-import './MoveDisplay.css'
-import { MoveFactory } from '../../factories/MoveFactory'
 import { Move } from '../../models/move/Move'
+import { MoveFactory } from '../../factories/MoveFactory'
 import { Type } from '../../models/type/Type'
 import { MoveService } from '../../services/move/MoveService'
 import { MoveNameBeautifier } from '../../services/nameBeautifiers/MoveNameBeautifier'
-import ServiceContainer from '../../services/ServiceContainer'
+import { LoadingSpinner } from '../LoadingSpinner'
 import { TypeDisplay } from '../type/TypeDisplay'
 import { MoveCategoryDisplay } from './MoveCategoryDisplay'
+import './MoveDisplay.css'
 
 interface MoveDisplayState {
   name: string
@@ -46,9 +47,13 @@ export class MoveDisplay extends React.Component<any & RouteProps, MoveDisplaySt
               <h1 className='move-title__text title level-item has-text-left'>
                 {this.moveNameBeautifier.beautifyName(this.state.name)}
               </h1>
-              <div className='level-item'>
+              <div className='move-title__icon level-item'>
                 <TypeDisplay type={this.state.type}/>
-                {this.state.move.category ? <MoveCategoryDisplay category={this.state.move.category}/> : null}
+                {
+                  this.state.move.category
+                    ? <MoveCategoryDisplay category={this.state.move.category}/>
+                    : <LoadingSpinner/>
+                }
               </div>
             </div>
           </div>

@@ -11,9 +11,7 @@ export class Navbar extends React.Component {
           <Link to='/' className='navbar-item'>
             <img src={pokeballIcon} alt=''/>
           </Link>
-          <div className='navbar-item'>
-            <SearchBar />
-          </div>
+          <SearchBar />
         </div>
       </div>
     )

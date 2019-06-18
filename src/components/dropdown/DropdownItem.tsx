@@ -47,10 +47,10 @@ export class DropdownItem extends React.Component<DropdownItemProps, DropdownIte
       <div className='dropdownitem__icon-container level-left'>
         <img
           src={process.env.PUBLIC_URL + '/icons/pokemons/' + this.props.name + '.png'}
-          className='dropdownitem__icon'
+          className='level-item dropdownitem__icon'
           alt=''
         />
-        <span className=''>{this.pokemonNameBeautifier.beautifyName(this.props.name)}</span>
+        <span className='level-item'>{this.pokemonNameBeautifier.beautifyName(this.props.name)}</span>
       </div>
     )
   }
@@ -60,7 +60,7 @@ export class DropdownItem extends React.Component<DropdownItemProps, DropdownIte
       <div className='dropdownitem__icon-container level-left'>
         <img
           src={process.env.PUBLIC_URL + '/icons/types/' + this.props.type!.toLowerCase() + '.gif'}
-          className='dropdownitem__icon'
+          className='level-item dropdownitem__icon'
           alt=''
         />
         <span className='level-item'>{this.moveNameBeautifier.beautifyName(this.props.name)}</span>

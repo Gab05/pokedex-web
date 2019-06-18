@@ -11,9 +11,13 @@
         margin-bottom: 0 !important;
         padding-left: 52px;
     }
+
+    .move-title__icon {
+        margin-left: 20px;
+        transform: scale(1.3);
+    }
 }
 
 .move-title__icon {
-    margin-left: 10px;
     transform: scale(1.3);
 }

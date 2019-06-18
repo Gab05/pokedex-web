@@ -1,6 +1,6 @@
 import React from 'react'
-import { ResourceType } from '../../models/ResourceType'
 import ServiceContainer from '../../services/ServiceContainer'
+import { ResourceType } from '../../models/ResourceType'
 import { PokemonService } from '../../services/pokemon/PokemonService'
 import { MoveService } from '../../services/move/MoveService'
 import { Dropdown } from '../dropdown/Dropdown'
@@ -36,14 +36,16 @@ export class SearchBar extends React.Component<any, SearchBarState> {
 
   render() {
     return(
-      <div>
-        <input
-          value={this.state.query.value}
-          onChange={this.updateQuery}
-          placeholder='Look for a Pokémon / Move ...'
-          className='searchbar__input input is-rounded'
-        />
-        {this.state.showDropdown ? this.renderDropdown() : null}
+      <div className='searchbar navbar-item'>
+        <div>
+          <input
+            value={this.state.query.value}
+            onChange={this.updateQuery}
+            placeholder='Pokémon / Move ...'
+            className='searchbar__input input is-rounded'
+          />
+          {this.state.showDropdown ? this.renderDropdown() : null}
+        </div>
       </div>
     )
   }
