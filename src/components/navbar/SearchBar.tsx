@@ -1,4 +1,5 @@
 import React from 'react'
+import { ResourceType } from '../../models/ResourceType'
 import ServiceContainer from '../../services/ServiceContainer'
 import { PokemonService } from '../../services/pokemon/PokemonService'
 import { MoveService } from '../../services/move/MoveService'
@@ -73,9 +74,8 @@ export class SearchBar extends React.Component<any, SearchBarState> {
   private findMatchingPokemonNames = () => {
     this.setState((state: SearchBarState) => {
       return {
-        matchingPokemonNames: this.pokemonService.getPokemonList().filter((name: string) => {
-          return state.query.isASubsequenceOf(name)
-        }),
+        matchingPokemonNames: this.pokemonService.getPokemonList()
+          .filter((name: string) => state.query.isASubsequenceOf(name)),
       }
     }, this.showDropdown)
   }
@@ -83,26 +83,30 @@ export class SearchBar extends React.Component<any, SearchBarState> {
   private findMatchingMoveNames = () => {
     this.setState((state: SearchBarState) => {
       return {
-        matchingMoveNames: this.moveService.getMoveList().filter((name: string) => {
-          return state.query.isASubsequenceOf(name)
-        }),
+        matchingMoveNames: this.moveService.getMoveList()
+          .filter((move: {name: string, type: string}) => state.query.isASubsequenceOf(move.name))
+          .map((move: {name: string, type: string}) => move.name),
       }
     }, this.showDropdown)
   }
 
   private showDropdown = () => {
-    this.setState(() => {
-      return { showDropdown: true }
-    })
+    this.setState(() => ({ showDropdown: true }))
   }
 
   private hideDropdown = () => {
-    this.setState(() => {
-      return { showDropdown: false }
-    })
+    this.setState(() => ({ showDropdown: false }))
   }
 
   private renderDropdown = () => {
+    const results = []
+
+    this.state.matchingPokemonNames.forEach((pokemon: string) =>
+      results.push({ name: pokemon, resourceType: ResourceType }))
+
+    this.state.matchingMoveNames.forEach((move: string) =>
+      results.push({ name: move, resourceType: ResourceType }))
+
     return <Dropdown pokemonNames={this.state.matchingPokemonNames} moveNames={this.state.matchingMoveNames}/>
   }
 }

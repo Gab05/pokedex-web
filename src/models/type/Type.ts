@@ -17,4 +17,5 @@ export enum Type {
   ROCK = 'rock',
   STEEL= 'steel',
   WATER = 'water',
+  NONE = '',
 }

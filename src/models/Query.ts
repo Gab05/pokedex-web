@@ -6,7 +6,7 @@ export class Query {
   }
 
   isASubsequenceOf = (other: string): boolean  => {
-    const that = this.value.replace(/ /g, '')
+    const that = this.value.toLowerCase().replace(/ /g, '')
     let indexThis = 0
 
     for (let indexOther = 0; indexOther < other.length && indexThis < that.length; indexOther++)

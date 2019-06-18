@@ -1,3 +1,7 @@
+.move-display {
+    padding-top: 130px;
+}
+
 .move-title {
     margin-bottom: 52px;
 }
@@ -7,4 +11,9 @@
         margin-bottom: 0 !important;
         padding-left: 52px;
     }
+}
+
+.move-title__icon {
+    margin-left: 10px;
+    transform: scale(1.3);
 }

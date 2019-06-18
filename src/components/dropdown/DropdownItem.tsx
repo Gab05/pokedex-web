@@ -8,6 +8,7 @@ import './DropdownItem.css'
 interface DropdownItemProps {
   resourceType: ResourceType
   name: string
+  type?: string
 }
 
 interface DropdownItemState {
@@ -57,7 +58,11 @@ export class DropdownItem extends React.Component<DropdownItemProps, DropdownIte
   private renderMoveType = (): JSX.Element => {
     return (
       <div className='level-item dropdownitem__icon-container'>
-        --
+        <img
+          src={process.env.PUBLIC_URL + '/icons/types/' + this.props.type! + '.gif'}
+          className='dropdownitem__icon'
+          alt=''
+        />
       </div>
     )
   }
