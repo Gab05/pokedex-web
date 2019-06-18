@@ -7,6 +7,8 @@ import { Type } from '../../models/type/Type'
 import { MoveService } from '../../services/move/MoveService'
 import { MoveNameBeautifier } from '../../services/nameBeautifiers/MoveNameBeautifier'
 import ServiceContainer from '../../services/ServiceContainer'
+import { TypeDisplay } from '../type/TypeDisplay'
+import { MoveCategoryDisplay } from './MoveCategoryDisplay'
 
 interface MoveDisplayState {
   name: string
@@ -44,11 +46,10 @@ export class MoveDisplay extends React.Component<any & RouteProps, MoveDisplaySt
               <h1 className='move-title__text title level-item has-text-left'>
                 {this.moveNameBeautifier.beautifyName(this.state.name)}
               </h1>
-              <img
-                src={process.env.PUBLIC_URL + '/icons/types/' + this.state.type.toLowerCase() + '.gif'}
-                className='move-title__icon level-item'
-                alt=''
-              />
+              <div className='level-item'>
+                <TypeDisplay type={this.state.type}/>
+                {this.state.move.category ? <MoveCategoryDisplay category={this.state.move.category}/> : null}
+              </div>
             </div>
           </div>
         </section>

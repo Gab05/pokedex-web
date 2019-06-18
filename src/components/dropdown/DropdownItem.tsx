@@ -1,8 +1,9 @@
 import React from 'react'
+import ServiceContainer from '../../services/ServiceContainer'
+import { MoveNameBeautifier } from '../../services/nameBeautifiers/MoveNameBeautifier'
 import { ResourceType } from '../../models/ResourceType'
 import { NameBeautifier } from '../../services/nameBeautifiers/NameBeautifier'
 import { PokemonNameBeautifier } from '../../services/nameBeautifiers/PokemonNameBeautifier'
-import ServiceContainer from '../../services/ServiceContainer'
 import './DropdownItem.css'
 
 interface DropdownItemProps {
@@ -18,6 +19,7 @@ interface DropdownItemState {
 export class DropdownItem extends React.Component<DropdownItemProps, DropdownItemState> {
 
   private readonly pokemonNameBeautifier: NameBeautifier = ServiceContainer.get(PokemonNameBeautifier)
+  private readonly moveNameBeautifier: NameBeautifier = ServiceContainer.get(MoveNameBeautifier)
 
   constructor(props: DropdownItemProps) {
     super(props)
@@ -28,10 +30,7 @@ export class DropdownItem extends React.Component<DropdownItemProps, DropdownIte
     return (
       <a href={'/' + this.props.resourceType.toLowerCase() + '/' + this.props.name} className='dropdownitem'>
         <div className={'dropdownitem__row level is-mobile ' + this.props.resourceType.toLowerCase()}>
-          <div className='level-left'>
-            {this.renderItemType()}
-            <span>{this.pokemonNameBeautifier.beautifyName(this.props.name)}</span>
-          </div>
+          {this.renderItemType()}
           <span className='level-right dropdownitem__type has-text-right'>{this.props.resourceType}</span>
         </div>
       </a>
@@ -45,24 +44,26 @@ export class DropdownItem extends React.Component<DropdownItemProps, DropdownIte
 
   private renderPokemonType = (): JSX.Element => {
     return (
-      <div className='level-item dropdownitem__icon-container'>
+      <div className='dropdownitem__icon-container level-left'>
         <img
           src={process.env.PUBLIC_URL + '/icons/pokemons/' + this.props.name + '.png'}
           className='dropdownitem__icon'
           alt=''
         />
+        <span className=''>{this.pokemonNameBeautifier.beautifyName(this.props.name)}</span>
       </div>
     )
   }
 
   private renderMoveType = (): JSX.Element => {
     return (
-      <div className='level-item dropdownitem__icon-container'>
+      <div className='dropdownitem__icon-container level-left'>
         <img
           src={process.env.PUBLIC_URL + '/icons/types/' + this.props.type!.toLowerCase() + '.gif'}
           className='dropdownitem__icon'
           alt=''
         />
+        <span className='level-item'>{this.moveNameBeautifier.beautifyName(this.props.name)}</span>
       </div>
     )
   }

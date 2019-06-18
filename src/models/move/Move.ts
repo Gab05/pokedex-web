@@ -7,7 +7,7 @@ export interface Move {
   type: Type
   power: number
   accuracy: number
-  category?: MoveCategory
+  category: MoveCategory
   maxPP?: number
   description?: string
   zMovePower?: number

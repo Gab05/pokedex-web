@@ -20,80 +20,85 @@
 }
 
 .type__button {
-    font-size: 60% !important;
-    font-style: italic !important;
+    width: 75px !important;
+    height: 27px !important;
+    padding-top: 0 !important;
+    border-radius: 7px !important;
+}
+
+.type__button-text {
     color: white !important;
-    width:90px !important;
+    text-shadow: 1px 1px 2px var(--dark) !important;
 }
 
 .bug {
-    background-color: var(--bug) !important;
+    background: linear-gradient(#889814, #687800) !important;
 }
 
 .dark {
-    background-color: var(--dark) !important;
+    background: linear-gradient(#2c2828, #0c0808) !important;
 }
 
 .dragon {
-    background-color: var(--dragon) !important;
+    background: linear-gradient(#3a25c6, #1a05a6) !important;
 }
 
 .electric {
-    background-color: var(--electric) !important;
+    background: linear-gradient(#fcdf20, #dcbf00) !important;
 }
 
 .fairy {
-    background-color: var(--fairy) !important;
+    background: linear-gradient(#f394f2, #d374d2) !important;
 }
 
 .fighting {
-    background-color: var(--fighting) !important;
+    background: linear-gradient(#a2242e, #82040e) !important;
 }
 
 .fire {
-    background-color: var(--fire) !important;
+    background: linear-gradient(#fa7a20, #ea5a00) !important;
 }
 
 .flying {
-    background-color: var(--flying) !important;
+    background: linear-gradient(#9bbeff, #7b9edf) !important;
 }
 
 .ghost {
-    background-color: var(--ghost) !important;
+    background: linear-gradient(#7042aa, #50228a) !important;
 }
 
 .grass {
-    background-color: var(--grass) !important;
+    background: linear-gradient(#0da600, #0d8600) !important;
 }
 
 .ground {
-    background-color: var(--ground) !important;
+    background: linear-gradient(#cba979, #ab8959) !important;
 }
 
 .ice {
-    background-color: var(--ice) !important;
+    background: linear-gradient(#4bd9ed, #2bb9cd) !important;
 }
 
 .normal {
-    background-color: var(--normal) !important;
+    background: linear-gradient(#919280, #717260) !important;
 }
 
 .poison {
-    background-color: var(--poison) !important;
+    background: linear-gradient(#c920ff, #a900df) !important;
 }
 
 .psychic {
-    background-color: var(--psychic) !important;
+    background: linear-gradient(#d6589c, #b6387c) !important;
 }
 
 .rock {
-    background-color: var(--rock) !important;
+    background: linear-gradient(#a57720, #855700) !important;
 }
 
 .steel {
-    background-color: var(--steel) !important;
+    background: linear-gradient(#9Fa8b0, #7F8890) !important;
 }
 
 .water {
-    background-color: var(--water) !important;
+    background: linear-gradient(#7da5f7, #5d85d7) !important;
 }

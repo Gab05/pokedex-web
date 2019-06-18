@@ -10,11 +10,9 @@ export class TypeDisplay extends React.Component<TypeDisplayProps, any> {
 
   render() {
     return (
-        <div className='type container'>
-          <button className={'type__button button ' + this.props.type.toLowerCase()}>
-            {this.props.type}
-          </button>
-        </div>
+      <button className={'type__button button ' + this.props.type.toLowerCase()}>
+        <span className={'type__button-text'}>{this.props.type[0] + this.props.type.slice(1).toLowerCase()}</span>
+      </button>
     )
   }
 }
