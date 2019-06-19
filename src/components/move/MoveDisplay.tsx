@@ -6,7 +6,6 @@ import { MoveFactory } from '../../factories/MoveFactory'
 import { Type } from '../../models/type/Type'
 import { MoveService } from '../../services/move/MoveService'
 import { MoveNameBeautifier } from '../../services/nameBeautifiers/MoveNameBeautifier'
-import { LoadingSpinner } from '../LoadingSpinner'
 import { TypeDisplay } from '../type/TypeDisplay'
 import { MoveCategoryDisplay } from './MoveCategoryDisplay'
 import './MoveDisplay.css'
@@ -49,11 +48,7 @@ export class MoveDisplay extends React.Component<any & RouteProps, MoveDisplaySt
               </h1>
               <div className='move-title__icon level-item'>
                 <TypeDisplay type={this.state.type}/>
-                {
-                  this.state.move.category
-                    ? <MoveCategoryDisplay category={this.state.move.category}/>
-                    : <LoadingSpinner/>
-                }
+                <MoveCategoryDisplay category={this.state.move.category}/>
               </div>
             </div>
           </div>

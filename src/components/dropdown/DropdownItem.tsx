@@ -1,8 +1,8 @@
 import React from 'react'
 import ServiceContainer from '../../services/ServiceContainer'
+import { NameBeautifier } from '../../services/nameBeautifiers/NameBeautifier'
 import { MoveNameBeautifier } from '../../services/nameBeautifiers/MoveNameBeautifier'
 import { ResourceType } from '../../models/ResourceType'
-import { NameBeautifier } from '../../services/nameBeautifiers/NameBeautifier'
 import { PokemonNameBeautifier } from '../../services/nameBeautifiers/PokemonNameBeautifier'
 import './DropdownItem.css'
 

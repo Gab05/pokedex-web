@@ -1,6 +1,6 @@
 import React from 'react'
-import './LoadingSpinner.css'
 import pokeballLogo from '../assets/pokeball.png'
+import './LoadingSpinner.css'
 
 export class LoadingSpinner extends React.Component {
   render() {
