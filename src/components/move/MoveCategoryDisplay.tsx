@@ -20,5 +20,5 @@ export class MoveCategoryDisplay extends React.Component<MoveCategoryDisplayProp
   private display = (): JSX.Element => this.props.category === MoveCategory.NONE ? <LoadingSpinner/>
     : <img src={this.iconUrl()} className='move__button-text' alt={this.props.category}/>
 
-  private iconUrl = (): string => process.env.PUBLIC_URL + '/icons/moves/' + this.props.category + '.svg'
+  private iconUrl = (): string => process.env.PUBLIC_URL + '/icons/moves/' + this.props.category.toLowerCase() + '.svg'
 }
