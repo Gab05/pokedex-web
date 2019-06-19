@@ -12,13 +12,13 @@ export class MoveCategoryDisplay extends React.Component<MoveCategoryDisplayProp
   render() {
     return (
       <button className={'move__button button ' + this.props.category.toLowerCase()}>
-        {this.props.category
-          ? <img src={this.iconUrl()} className='move__button-text' alt=''/>
-          : <LoadingSpinner/>
-        }
+        {this.display()}
       </button>
     )
   }
+
+  private display = (): JSX.Element => this.props.category === MoveCategory.NONE ? <LoadingSpinner/>
+    : <img src={this.iconUrl()} className='move__button-text' alt={this.props.category}/>
 
   private iconUrl = (): string => process.env.PUBLIC_URL + '/icons/moves/' + this.props.category + '.svg'
 }

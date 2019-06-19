@@ -1,6 +1,6 @@
 .loadingspinner__image {
-    width: 26px;
-    height: 26px;
+    width: 25px;
+    height: 25px;
     -webkit-animation:spin 750ms ease-in-out infinite;
     -moz-animation:spin 750ms ease-in-out infinite;
     animation:spin 750ms ease-in-out infinite;
