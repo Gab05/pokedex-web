@@ -50,7 +50,7 @@ export class PokemonDisplay extends React.Component<any & RouteProps, PokemonDis
           beautifiedName={this.pokemonNameBeautifier.beautifyName(this.state.name)}
           nationalNumber={this.state.pokemon.nationalNumber}
         />
-        <div className='container'>
+        <div className='display__body container'>
           <div className='tile is-ancestor is-vertical'>
             <div className='tile is-12'>
               <div className='tile'>

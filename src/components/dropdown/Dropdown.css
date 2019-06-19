@@ -11,9 +11,8 @@
     border-radius: 5px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
     .dropdown__content {
-        overflow-y: auto;
         position: fixed;
         left: 0;
         width: 100%;

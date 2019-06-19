@@ -18,3 +18,9 @@
 .weight-title {
     padding-bottom: 10px;
 }
+
+@media (max-width: 1024px) {
+    .display__body {
+        margin: 0 24px 0 24px !important;
+    }
+}

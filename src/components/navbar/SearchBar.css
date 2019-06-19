@@ -1,16 +1,10 @@
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 640px) {
     .searchbar {
         padding-left: 0 !important;
     }
 
     .searchbar__input {
-        min-width: 110% !important;
-    }
-}
-
-@media screen and (max-width: 1000px) {
-    .searchbar__input {
-        min-width: 150%;
+        min-width: 130% !important;
     }
 }
 
