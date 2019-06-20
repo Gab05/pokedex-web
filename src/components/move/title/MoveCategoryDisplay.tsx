@@ -1,6 +1,6 @@
 import React from 'react'
-import { MoveCategory } from '../../models/move/MoveCategory'
-import { LoadingSpinner } from '../LoadingSpinner'
+import { MoveCategory } from '../../../models/move/MoveCategory'
+import { LoadingSpinner } from '../../LoadingSpinner'
 import './MoveCategoryDisplay.css'
 
 interface MoveCategoryDisplayProps {

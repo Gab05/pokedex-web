@@ -10,7 +10,7 @@ import { CaptureRateDisplay } from './basic/CaptureRateDisplay'
 import { GenderRatioDisplay } from './basic/GenderRatioDisplay'
 import { WeightDisplay } from './basic/WeightDisplay'
 import { PokemonSprites } from './PokemonSprites'
-import { PokemonTitle } from './PokemonTitle'
+import { PokemonTitle } from './title/PokemonTitle'
 import { StatsDisplay } from './stats/StatsDisplay'
 import './PokemonDisplay.css'
 
