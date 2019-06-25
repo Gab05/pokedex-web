@@ -35,7 +35,6 @@ export class PokemonSprites extends React.Component<PokemonSpritesProps, Pokemon
       <img
         src={this.state.normalUrl}
         onLoad={() => this.hideNormalLoader()}
-        className='pokemon-sprite__img'
         alt=''
       />
     )
@@ -43,7 +42,6 @@ export class PokemonSprites extends React.Component<PokemonSpritesProps, Pokemon
       <img
         src={this.state.shinyUrl}
         onLoad={() => this.hideShinyLoader()}
-        className='pokemon-sprite__img'
         alt=''
       />
     )
