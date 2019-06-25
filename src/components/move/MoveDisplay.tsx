@@ -5,6 +5,8 @@ import { Move } from '../../models/move/Move'
 import { MoveFactory } from '../../factories/MoveFactory'
 import { Type } from '../../models/type/Type'
 import { MoveService } from '../../services/move/MoveService'
+import { PowerAccuracyDisplay } from './PowerAccuracyDisplay'
+import { PPDisplay } from './PPDisplay'
 import { MoveTitle } from './title/MoveTitle'
 import './MoveDisplay.css'
 
@@ -41,15 +43,15 @@ export class MoveDisplay extends React.Component<any & RouteProps, MoveDisplaySt
         <div className='display__body container'>
           <div className='tile is-ancestor is-vertical'>
             <div className='tile'>
-              <div className='tile is-2 is-parent'>
-                <div className='tile notification is-success is-child is-vertical'>
-                  <p className='display__name'>POWER</p>
-                  <span className='display__value'>{this.state.move.power}</span>
-                  <p className='display__name'>ACCURACY</p>
-                  <span className='display__value'>{this.state.move.accuracy}</span>
+              <div className='tile is-4 level is-mobile'>
+                <div className='tile is-half is-parent'>
+                  <PowerAccuracyDisplay power={this.state.move.power} accuracy={this.state.move.accuracy} />
+                </div>
+                <div className='tile is-half is-parent'>
+                  <PPDisplay PP={this.state.move.pp}/>
                 </div>
               </div>
-              <div className='tile is-4 is-parent'>
+              <div className='tile is-2 is-parent'>
                 <div className='tile notification is-success is-child'>
                   battle effect, overworld effect
                 </div>

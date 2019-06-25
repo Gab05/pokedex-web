@@ -8,7 +8,7 @@ export interface Move {
   power: number
   accuracy: number
   category: MoveCategory
-  maxPP?: number
+  pp: number
   description?: string
   zMovePower?: number
   battleEffect?: string

@@ -7,6 +7,6 @@ import { DropdownItem } from './DropdownItem'
 
 describe('DropdownItem', () => {
   it('should render', () => {
-    const component = shallow(<DropdownItem resourceType={ResourceType.POKEMON} name='garchomp' />)
+    const component = shallow(<DropdownItem resourceType={ResourceType.POKEMON} name='garchomp'/>)
   })
 })

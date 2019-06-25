@@ -49,7 +49,7 @@ export class PokemonSprites extends React.Component<PokemonSpritesProps, Pokemon
     )
 
     return (
-      <div className='tile '>
+      <div className='tile level is-mobile'>
         <div className='tile is-parent'>
           <div className='tile is-child notification is-info'>
             {normalImg}

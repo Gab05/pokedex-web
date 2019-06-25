@@ -6,9 +6,9 @@ import { Pokemon } from '../../models/pokemon/Pokemon'
 @injectable()
 export class PokemonService {
 
-  // TODO: Eventually store in config file to offer both local and heroku backend hosting
-  LOCAL_BASE_URL = 'https://localhost:8080'
-  REMOTE_BASE_URL = 'https://gablalib-pokedex-core.herokuapp.com'
+  private readonly BASE_URL = process.env.REACT_APP_POKEDEX_CORE_URL
+  private readonly LOCAL_BASE_URL = 'https://localhost:8080'
+  private readonly REMOTE_BASE_URL = 'https://gablalib-pokedex-core.herokuapp.com'
 
   public getPokemonList = () => pokemonList
 

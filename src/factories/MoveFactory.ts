@@ -7,13 +7,13 @@ import { Type } from '../models/type/Type'
 @injectable()
 export class MoveFactory {
 
-  public createBlankMove = () => ({
+  public createBlankMove = (): Move => ({
     name: '',
     type: Type.NONE,
     power: 0,
     accuracy: 0,
     category: MoveCategory.NONE,
-    maxPP: 0,
+    pp: 0,
     description: '',
     zMovePower: 0,
     battleEffect: '',

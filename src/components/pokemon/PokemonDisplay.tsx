@@ -58,15 +58,15 @@ export class PokemonDisplay extends React.Component<any & RouteProps, PokemonDis
                   <div className='tile'>
                     <PokemonSprites name={this.state.name} />
                   </div>
-                  <div className='tile'>
+                  <div className='tile level is-mobile'>
                     <div className='tile is-parent'>
-                      <article className='tile is-child is-half notification is-info'>
+                      <article className='tile is-child notification is-info'>
                         <p className='display__name type-title'>TYPE</p>
                         <TypesDisplay types={this.state.pokemon.typing}/>
                       </article>
                     </div>
                     <div className='tile is-parent'>
-                      <article className='tile is-child is-half notification is-info'>
+                      <article className='tile is-child notification is-info'>
                         <p className='display__name weight-title'>WEIGHT</p>
                         <WeightDisplay weight={this.state.pokemon.weight}/>
                       </article>
