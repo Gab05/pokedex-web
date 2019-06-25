@@ -912,5 +912,5 @@ export default [
   'mega_abomasnow',
   'mega_gallade',
   'mega_audino',
-  'mega_diancie'
+  'mega_diancie',
 ]

@@ -12,10 +12,10 @@ export class PokemonService {
 
   public getPokemonList = () => pokemonList
 
-  public fetchPokemonByName = (name: string) => fetch(this.REMOTE_BASE_URL + '/pokemons/' + name)
-    .then((response: Response) => {
-      return response.json()
-    }).then((pokemon: Pokemon) => pokemon)
+  public fetchPokemonByName = (name: string) =>
+    fetch(this.REMOTE_BASE_URL + '/pokemons/' + name)
+    .then((response: Response) => response.json())
+    .then((pokemon: Pokemon) => pokemon)
 
   public getNormalSpriteUrl = (name: string) => this.REMOTE_BASE_URL + '/pokemons/' + name + '/sprite/normal'
 

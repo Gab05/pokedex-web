@@ -14,3 +14,11 @@
 .display__value {
     font-weight: bold;
 }
+
+.level {
+    margin-bottom: 0 !important;
+}
+
+.move-display__battle-description {
+    text-align: left;
+}
