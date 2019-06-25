@@ -54,9 +54,9 @@ export class MoveDisplay extends React.Component<any & RouteProps, MoveDisplaySt
               </div>
               <div className='tile is-8 is-parent'>
                 <div className='tile box is-success is-child'>
-                  <p className='move-display__battle-description'>
+                  <div className='move-display__battle-description'>
                     {this.state.move.battleDescription ? this.state.move.battleDescription : <LoadingSpinner/>}
-                  </p>
+                  </div>
                 </div>
               </div>
             </div>
