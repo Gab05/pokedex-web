@@ -12,8 +12,8 @@ export interface Move {
   description?: string
   zMovePower?: number
   battleDescription: string
-  battleEffect?: string
-  battleEffectRatio?: number
+  battleEffect: string
+  battleEffectRate: string
   overworldEffect?: string
   baseCriticalHitRatio?: number
   priority?: number

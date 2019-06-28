@@ -53,9 +53,32 @@ export class MoveDisplay extends React.Component<any & RouteProps, MoveDisplaySt
                 </div>
               </div>
               <div className='tile is-8 is-parent'>
-                <div className='tile box is-success is-child'>
-                  <div className='move-display__battle-description'>
-                    {this.state.move.battleDescription ? this.state.move.battleDescription : <LoadingSpinner/>}
+                <div className='tile box is-success is-child has-text-left'>
+                  <p className='display__name'>BATTLE DESCRIPTION</p>
+                  {this.state.move.battleDescription ? this.state.move.battleDescription : <LoadingSpinner/>}
+                </div>
+              </div>
+            </div>
+            <div className='tile'>
+              <div className='tile is-4 is-parent'>
+                <div className='tile notification is-child is-success has-text-left'>
+                  <p className='display__name'>BASE CRITICAL HIT RATIO</p>
+                  {this.state.move.baseCriticalHitRatio ? this.state.move.baseCriticalHitRatio : <LoadingSpinner/>}
+                </div>
+              </div>
+              <div className='tile is-8 level is-mobile'>
+                <div className='tile is-9 is-parent'>
+                  <div className='tile is-child box is-success has-text-left'>
+                    <p className='display__name'>BATTLE EFFECT</p>
+                    {this.state.move.battleEffect ? this.state.move.battleEffect : <LoadingSpinner/>}
+                  </div>
+                </div>
+                <div className='tile is-3 is-parent'>
+                  <div className='tile notification is-success is-child'>
+                    <p className='display__name'>BATTLE EFFECT RATE</p>
+                    <p className='display__value'>
+                      {this.state.move.battleEffectRate ? this.state.move.battleEffectRate : <LoadingSpinner/>} %
+                    </p>
                   </div>
                 </div>
               </div>
@@ -63,17 +86,10 @@ export class MoveDisplay extends React.Component<any & RouteProps, MoveDisplaySt
             <div className='tile'>
               <div className='tile is-4 is-parent'>
                 <div className='tile notification is-success is-child'>
-                  Basic info (crit chance, ...) ?
+                  FLAGS
                 </div>
               </div>
-              <div className='tile is-4 is-parent'>
-                <div className='tile notification is-success is-child'>
-                  Flags!
-                </div>
-              </div>
-            </div>
-            <div className='tile'>
-              <div className='tile is-12 is-parent'>
+              <div className='tile is-8 is-parent'>
                 <div className='tile notification is-dark is-child'>
                   Learned by (soon!)
                 </div>

@@ -18,7 +18,7 @@ export class MoveFactory {
     zMovePower: 0,
     battleDescription: '',
     battleEffect: '',
-    battleEffectRatio: 0,
+    battleEffectRate: '',
     overworldEffect: '',
     baseCriticalHitRatio: 0,
     priority: 0,
