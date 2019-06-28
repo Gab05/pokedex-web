@@ -9,13 +9,12 @@ export interface Move {
   accuracy: number
   category: MoveCategory
   pp: number
-  description?: string
   zMovePower?: number
   battleDescription: string
   battleEffect: string
   battleEffectRate: string
   overworldEffect?: string
-  baseCriticalHitRatio?: number
-  priority?: number
+  criticalHitRatio: number
+  priority: string
   flags?: MoveFlag[]
 }

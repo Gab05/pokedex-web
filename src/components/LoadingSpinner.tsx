@@ -5,9 +5,7 @@ import './LoadingSpinner.css'
 export class LoadingSpinner extends React.Component {
   render() {
     return (
-      <div>
-        <img className='loadingspinner__image' src={pokeballLogo} alt=''/>
-      </div>
+      <img className='loadingspinner__image' src={pokeballLogo} alt=''/>
     )
   }
 }

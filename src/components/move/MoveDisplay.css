@@ -22,3 +22,9 @@
 .move-display__battle-description {
     text-align: left;
 }
+
+@media (max-width: 768px) {
+    .battle__effect {
+        width: 65% !important;
+    }
+}

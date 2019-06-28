@@ -14,14 +14,13 @@ export class MoveFactory {
     accuracy: 0,
     category: MoveCategory.NONE,
     pp: 0,
-    description: '',
     zMovePower: 0,
     battleDescription: '',
     battleEffect: '',
     battleEffectRate: '',
     overworldEffect: '',
-    baseCriticalHitRatio: 0,
-    priority: 0,
+    criticalHitRatio: 0,
+    priority: '',
     flags: [],
   }) as Move
 }
