@@ -2,10 +2,6 @@
     padding-top: 130px;
 }
 
-.display__body {
-    margin-top: 104px;
-}
-
 .display__name {
     font-size: 60%;
     font-style: italic;
@@ -23,8 +19,3 @@
     text-align: left;
 }
 
-@media (max-width: 768px) {
-    .battle__effect {
-        width: 65% !important;
-    }
-}

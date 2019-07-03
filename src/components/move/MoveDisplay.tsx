@@ -81,7 +81,7 @@ export class MoveDisplay extends React.Component<any & RouteProps, MoveDisplaySt
                 </div>
                 <div className='tile'>
                   <div className='tile level is-mobile'>
-                    <div className='battle__effect'>
+                    <div className='tile battle__effect is-7-mobile'>
                       <div className='tile is-parent'>
                         <div className='tile is-child box is-success has-text-left'>
                           <p className='display__name'>BATTLE EFFECT</p>
@@ -89,7 +89,7 @@ export class MoveDisplay extends React.Component<any & RouteProps, MoveDisplaySt
                         </div>
                       </div>
                     </div>
-                    <div className='tile level-right is-3'>
+                    <div className='tile is-4'>
                       <div className='tile is-parent'>
                         <div className='tile is-child notification is-success'>
                           <p className='display__name'>EFFECT RATE</p>
