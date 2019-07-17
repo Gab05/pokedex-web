@@ -1,15 +1,14 @@
 import 'reflect-metadata'
-import moveList from '../../assets/moveList'
 import { injectable } from 'inversify'
+import { getPokedexCoreUrl } from '../UrlProvider'
 import { Move } from '../../models/move/Move'
 import { Type } from '../../models/type/Type'
+import moveList from '../../assets/moveList'
 
 @injectable()
 export class MoveService {
 
-  // TODO: Eventually store in config file to offer both local and heroku backend hosting
-  LOCAL_BASE_URL = 'https://localhost:8080'
-  REMOTE_BASE_URL = 'https://gablalib-pokedex-core.herokuapp.com'
+  private readonly BASE_URL = getPokedexCoreUrl()
 
   public getMoveList = () => moveList
 
@@ -18,7 +17,7 @@ export class MoveService {
     .map((m) => m.type)[0] as Type
 
   public fetchMoveByName = (name: string) =>
-    fetch(this.REMOTE_BASE_URL + '/moves/' + name)
+    fetch(this.BASE_URL + '/moves/' + name)
     .then((response: Response) => response.json())
     .then((move: Move) => move)
 }

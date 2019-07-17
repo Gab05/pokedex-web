@@ -1,23 +1,25 @@
 import 'reflect-metadata'
 import { injectable } from 'inversify'
-import pokemonList from '../../assets/pokemonList'
+import { getPokedexCoreUrl } from '../UrlProvider'
 import { Pokemon } from '../../models/pokemon/Pokemon'
+import pokemonList from '../../assets/pokemonList'
 
 @injectable()
 export class PokemonService {
 
-  private readonly BASE_URL = process.env.REACT_APP_POKEDEX_CORE_URL
-  private readonly LOCAL_BASE_URL = 'https://localhost:8080'
-  private readonly REMOTE_BASE_URL = 'https://gablalib-pokedex-core.herokuapp.com'
+  private readonly BASE_URL = getPokedexCoreUrl()
 
   public getPokemonList = () => pokemonList
 
   public fetchPokemonByName = (name: string) =>
-    fetch(this.REMOTE_BASE_URL + '/pokemons/' + name)
-    .then((response: Response) => response.json())
-    .then((pokemon: Pokemon) => pokemon)
+    fetch(this.BASE_URL + '/pokemons/' + name)
+      .then((response: Response) => response.json())
+      .then((pokemon: Pokemon) => pokemon)
 
-  public getNormalSpriteUrl = (name: string) => this.REMOTE_BASE_URL + '/pokemons/' + name + '/sprite/normal'
+  public getNormalSpriteUrl = (name: string) => {
+    console.log(this.BASE_URL)
+    return this.BASE_URL + '/pokemons/' + name + '/sprite/normal'
+  }
 
-  public getShinySpriteUrl = (name: string) => this.REMOTE_BASE_URL + '/pokemons/' + name + '/sprite/shiny'
+  public getShinySpriteUrl = (name: string) => this.BASE_URL + '/pokemons/' + name + '/sprite/shiny'
 }
