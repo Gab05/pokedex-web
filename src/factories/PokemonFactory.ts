@@ -12,36 +12,36 @@ import { Type } from '../models/type/Type'
 @injectable()
 export class PokemonFactory {
 
+  private static createBlankAbilities(): Abilities {
+    return {
+      first: '',
+      second: '',
+      hidden: '',
+    }
+  }
+
+  private static createBlankStats(): Stats {
+    return { hp: 0, atk: 0, def: 0, spatk: 0, spdef: 0, speed: 0 } as Stats
+  }
+
   public createBlankPokemon = (): Pokemon => {
     return {
       name: '',
       nationalNumber: 0,
       typing: [] as Type[],
       weight: { lbs: '', kg: ''} as Weight,
-      abilities: this.createBlankAbilities(),
+      abilities: PokemonFactory.createBlankAbilities(),
       levelUpMoves: [] as Move[],
       breedingMoves: [] as Move[],
       tutorMoves: [] as Move[],
-      baseStats: this.createBlankStats(),
+      baseStats: PokemonFactory.createBlankStats(),
       baseExpGrowth: 0,
       baseEggSteps: 0,
       baseHappiness: 0,
       genderRatio: { male: '', female: ''} as GenderRatio,
       captureRate: '',
       eggGroup: [] as EggGroup[],
-      effortValuesYielded: this.createBlankStats(),
+      effortValuesYielded: PokemonFactory.createBlankStats(),
     }
-  }
-
-  private createBlankAbilities(): Abilities {
-    return {
-      first: { name: '', battleEffect: '', overworldEffect: ''},
-      second: { name: '', battleEffect: '', overworldEffect: ''},
-      hidden: { name: '', battleEffect: '', overworldEffect: ''},
-    } as Abilities
-  }
-
-  private createBlankStats(): Stats {
-    return { hp: 0, atk: 0, def: 0, spatk: 0, spdef: 0, speed: 0 } as Stats
   }
 }

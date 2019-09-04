@@ -1,7 +1,7 @@
 import React from 'react'
 import ServiceContainer from '../../services/ServiceContainer'
 import { NameBeautifier } from '../../services/nameBeautifiers/NameBeautifier'
-import { MoveNameBeautifier } from '../../services/nameBeautifiers/MoveNameBeautifier'
+import { GenericNameBeautifier } from '../../services/nameBeautifiers/GenericNameBeautifier'
 import { ResourceType } from '../../models/ResourceType'
 import { PokemonNameBeautifier } from '../../services/nameBeautifiers/PokemonNameBeautifier'
 import './DropdownItem.css'
@@ -19,7 +19,7 @@ interface DropdownItemState {
 export class DropdownItem extends React.Component<DropdownItemProps, DropdownItemState> {
 
   private readonly pokemonNameBeautifier: NameBeautifier = ServiceContainer.get(PokemonNameBeautifier)
-  private readonly moveNameBeautifier: NameBeautifier = ServiceContainer.get(MoveNameBeautifier)
+  private readonly moveNameBeautifier: NameBeautifier = ServiceContainer.get(GenericNameBeautifier)
 
   constructor(props: DropdownItemProps) {
     super(props)

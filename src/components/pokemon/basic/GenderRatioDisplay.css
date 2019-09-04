@@ -1,21 +1,16 @@
 .gender-ratio__male {
     color: #2430D7;
     font-weight: bold;
-    font-size: 90%;
+    font-size: 80%;
 }
 
 .gender-ratio__female {
     color: #D7204F;
     font-weight: bold;
-    font-size: 90%;
-}
-
-.gender-ratio__colon {
-    color: darkslategrey;
-    font-size: 90%;
+    font-size: 80%;
 }
 
 .gender-ratio__value {
     font-weight: bold;
-    font-size: 90%;
+    font-size: 80%;
 }

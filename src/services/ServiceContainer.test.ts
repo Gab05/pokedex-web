@@ -2,7 +2,7 @@ import ServiceContainer from './ServiceContainer'
 import { MoveFactory } from '../factories/MoveFactory'
 import { PokemonFactory } from '../factories/PokemonFactory'
 import { MoveService } from './move/MoveService'
-import { MoveNameBeautifier } from './nameBeautifiers/MoveNameBeautifier'
+import { GenericNameBeautifier } from './nameBeautifiers/GenericNameBeautifier'
 import { PokemonNameBeautifier } from './nameBeautifiers/PokemonNameBeautifier'
 import { PokemonService } from './pokemon/PokemonService'
 import { expect } from 'chai'
@@ -15,7 +15,7 @@ describe('ServiceContainer', () => {
     expect(container.get(PokemonNameBeautifier)).instanceOf(PokemonNameBeautifier)
     expect(container.get(PokemonService)).instanceOf(PokemonService)
     expect(container.get(PokemonFactory)).instanceOf(PokemonFactory)
-    expect(container.get(MoveNameBeautifier)).instanceOf(MoveNameBeautifier)
+    expect(container.get(GenericNameBeautifier)).instanceOf(GenericNameBeautifier)
     expect(container.get(MoveService)).instanceOf(MoveService)
     expect(container.get(MoveFactory)).instanceOf(MoveFactory)
   })

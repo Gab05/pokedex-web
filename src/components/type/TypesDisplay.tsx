@@ -18,6 +18,8 @@ export class TypesDisplay extends React.Component<TypesDisplayProps, any> {
     )
   }
 
-  private displayTypes = (): JSX.Element[] => this.props.types!!.map((t: Type) =>
-    <div key={t}><TypeDisplay type={t}/></div>)
+  private displayTypes = (): JSX.Element[] =>
+    this.props.types!!.map(
+      (t: Type) => <div key={t}><TypeDisplay type={t}/></div>
+    )
 }

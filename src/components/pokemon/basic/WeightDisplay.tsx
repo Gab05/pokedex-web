@@ -12,16 +12,20 @@ export class WeightDisplay extends React.Component<WeightDisplayProps, any> {
     return (
       <div>
         <div className='weight__display level is-mobile'>
-          <span className='weight__value level-item'>
-            {this.props.weight.kg ? this.props.weight.kg : <LoadingSpinner/>}
-          </span>
-          <span className='weight__unit level-item'>kg</span>
+          <div className='level-item'>
+            <div className='weight__value'>
+              {this.props.weight.kg ? this.props.weight.kg : <LoadingSpinner/>}
+            </div>
+            <div className='weight__unit'>&nbsp;&nbsp;kg</div>
+          </div>
         </div>
         <div className='weight__display level is-mobile'>
-          <span className='weight__value level-item'>
-            {this.props.weight.lbs ? this.props.weight.lbs : <LoadingSpinner/>}
-          </span>
-          <span className='weight__unit level-item'>lbs</span>
+          <div className='level-item'>
+            <div className='weight__value'>
+              {this.props.weight.lbs ? this.props.weight.lbs : <LoadingSpinner/>}
+            </div>
+            <div className='weight__unit'>&nbsp;&nbsp;lbs</div>
+          </div>
         </div>
       </div>
     )

@@ -34,14 +34,14 @@ export class PokemonSprites extends React.Component<PokemonSpritesProps, Pokemon
     const normalImg = (
       <img
         src={this.state.normalUrl}
-        onLoad={() => this.hideNormalLoader()}
+        onLoad={this.hideNormalLoader}
         alt=''
       />
     )
     const shinyImg = (
       <img
         src={this.state.shinyUrl}
-        onLoad={() => this.hideShinyLoader()}
+        onLoad={this.hideShinyLoader}
         alt=''
       />
     )
@@ -66,13 +66,13 @@ export class PokemonSprites extends React.Component<PokemonSpritesProps, Pokemon
     )
   }
 
-  private hideNormalLoader() {
+  private hideNormalLoader = () => {
     this.setState(() => {
       return { normalLoading: false }
     })
   }
 
-  private hideShinyLoader() {
+  private hideShinyLoader = () => {
     this.setState(() => {
       return { shinyLoading: false }
     })

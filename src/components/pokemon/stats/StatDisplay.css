@@ -1,5 +1,6 @@
 .stat__display {
     margin-bottom: 0 !important;
+    padding-bottom: 5px;
 }
 
 .stat__name {
@@ -11,6 +12,7 @@
 .stat__value {
     width: 10%;
     font-weight: bold;
+    font-size: 80%;
 }
 
 .stat__bar {

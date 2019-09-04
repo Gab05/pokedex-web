@@ -12,16 +12,18 @@ export class GenderRatioDisplay extends React.Component<GenderRatioDisplayProps,
     return (
       <div>
         <div className='level is-mobile'>
-          <span className='gender-ratio__male level-item'>♂</span>
-          <span className='gender-ratio__colon level-item'>:</span>
-          <span className='gender-ratio__value level-item'>
-            {this.props.genderRatio.male ? this.props.genderRatio.male : <LoadingSpinner/>}%
-          </span>
-          <span className='gender-ratio__female level-item'>♀</span>
-          <span className='gender-ratio__colon level-item'>:</span>
-          <span className='gender-ratio__value level-item'>
-            {this.props.genderRatio.female ? this.props.genderRatio.female : <LoadingSpinner/>}%
-          </span>
+          <div className='level-item'>
+            <div className='gender-ratio__male'>♂ </div>
+            <div className='gender-ratio__value'>
+              {this.props.genderRatio.male ? `: ${this.props.genderRatio.male}` : <LoadingSpinner/>}%
+            </div>
+          </div>
+          <div className='level-item'>
+            <div className='gender-ratio__female'>♀ </div>
+            <div className='gender-ratio__value'>
+              {this.props.genderRatio.female ? `: ${this.props.genderRatio.female}` : <LoadingSpinner/>}%
+            </div>
+          </div>
         </div>
       </div>
     )

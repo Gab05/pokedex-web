@@ -9,7 +9,7 @@ interface StatDisplayProps {
 
 export class StatDisplay extends React.Component<StatDisplayProps, any> {
 
-  private COLOR_CLASS_MAP = [
+  private COLOR_CLASS_MAP: string[] = [
     'is-danger',
     'is-orange',
     'is-warning',

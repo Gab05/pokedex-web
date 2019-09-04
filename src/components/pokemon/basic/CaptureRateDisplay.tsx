@@ -11,9 +11,6 @@ export class CaptureRateDisplay extends React.Component<CaptureRateDisplayProps,
   render() {
     return (
       <div className='level is-mobile'>
-        <span className='capture-rate__title level-item'>
-          Capture rate:
-        </span>
         <span className='capture-rate__value level-item'>
           {this.props.captureRate ? this.props.captureRate : <LoadingSpinner/>}
         </span>

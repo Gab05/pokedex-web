@@ -6,6 +6,7 @@ import { PokemonFactory } from '../../factories/PokemonFactory'
 import { PokemonNameBeautifier } from '../../services/nameBeautifiers/PokemonNameBeautifier'
 import { PokemonService } from '../../services/pokemon/PokemonService'
 import { TypesDisplay } from '../type/TypesDisplay'
+import { AbilitiesDisplay } from './abilities/AbilitiesDisplay'
 import { CaptureRateDisplay } from './basic/CaptureRateDisplay'
 import { GenderRatioDisplay } from './basic/GenderRatioDisplay'
 import { WeightDisplay } from './basic/WeightDisplay'
@@ -82,8 +83,9 @@ export class PokemonDisplay extends React.Component<any & RouteProps, PokemonDis
                 <div className='tile is-parent is-3'>
                   <article className='tile is-child notification is-info'>
                     <div className='content'>
-                      <p className='subtitle display__name'>BASIC INFO</p>
+                      <p className='display__name'>CAPTURE RATE</p>
                       <CaptureRateDisplay captureRate={this.state.pokemon.captureRate}/>
+                      <p className='display__name'>GENDER RATIO</p>
                       <GenderRatioDisplay genderRatio={this.state.pokemon.genderRatio}/>
                     </div>
                   </article>
@@ -92,8 +94,13 @@ export class PokemonDisplay extends React.Component<any & RouteProps, PokemonDis
             </div>
             <div className='tile is-12'>
               <div className='tile is-parent 4'>
-                <article className='tile is-child notification is-info'>
-                  <p className='subtitle display__name'>ABILITIES (soon!)</p>
+                <article className='tile is-child notification is-dark'>
+                  <p className='subtitle display__name'>ABILITIES</p>
+                  <AbilitiesDisplay
+                    first={this.state.pokemon.abilities.first}
+                    second={this.state.pokemon.abilities.second}
+                    hidden={this.state.pokemon.abilities.hidden}
+                  />
                 </article>
               </div>
               <div className='tile is-parent is-8'>

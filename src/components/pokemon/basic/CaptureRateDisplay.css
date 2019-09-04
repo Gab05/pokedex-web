@@ -1,9 +1,3 @@
-.capture-rate__title {
-    color: darkslategrey;
-    font-size: 90%;
-}
-
 .capture-rate__value {
     font-weight: bold;
-    font-size: 90%;
 }

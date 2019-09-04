@@ -2,7 +2,7 @@ import React from 'react'
 import ServiceContainer from '../../../services/ServiceContainer'
 import { Move } from '../../../models/move/Move'
 import { Type } from '../../../models/type/Type'
-import { MoveNameBeautifier } from '../../../services/nameBeautifiers/MoveNameBeautifier'
+import { GenericNameBeautifier } from '../../../services/nameBeautifiers/GenericNameBeautifier'
 import { TypeDisplay } from '../../type/TypeDisplay'
 import { MoveCategoryDisplay } from './MoveCategoryDisplay'
 import './MoveTitle.css'
@@ -14,7 +14,7 @@ interface MoveTitleProps {
 }
 
 export class MoveTitle extends React.Component<MoveTitleProps, any> {
-  private moveNameBeautifier = ServiceContainer.get(MoveNameBeautifier)
+  private moveNameBeautifier = ServiceContainer.get(GenericNameBeautifier)
 
   render() {
     return (

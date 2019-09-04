@@ -12,7 +12,7 @@ export interface Pokemon {
   nationalNumber: number
   typing: Type[]
   weight: Weight
-  abilities?: Abilities
+  abilities: Abilities
   levelUpMoves?: Move[]
   breedingMoves?: Move[]
   tutorMoves?: Move[]

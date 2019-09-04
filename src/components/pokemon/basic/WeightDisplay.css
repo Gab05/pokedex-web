@@ -4,10 +4,10 @@
 
 .weight__value {
     font-weight: bold;
-    font-size: 90%;
+    font-size: 80%;
 }
 
 .weight__unit {
-    font-size: 90%;
+    font-size: 80%;
     color: darkslategrey;
 }

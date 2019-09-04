@@ -1,0 +1,26 @@
+.ability__display {
+    margin-bottom: 20px;
+}
+
+.ability__header {
+    border-radius: 10px 10px 0 0 !important;
+    padding: 5px 0 5px 10px !important;
+    font-size: 80%;
+}
+
+.ability__title {
+    color: darkslategrey;
+}
+
+.ability__value {
+    font-weight: bold;
+}
+
+.ability__description {
+    border-radius: 0 0 10px 10px !important;
+    font-size: 60%;
+}
+
+.is-pink {
+    background-color: #d03393 !important;
+}
