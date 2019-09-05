@@ -37,9 +37,9 @@ export class PokemonDisplay extends React.Component<any & RouteProps, PokemonDis
 
   componentDidMount(): void {
     this.pokemonService.fetchPokemonByName(this.state.name).then((fetchedPokemon) => {
-      this.setState(() => {
-        return { pokemon: fetchedPokemon }
-      })
+      this.setState(() => ({
+        pokemon: fetchedPokemon,
+      }))
     })
   }
 
@@ -97,9 +97,9 @@ export class PokemonDisplay extends React.Component<any & RouteProps, PokemonDis
                 <article className='tile is-child notification is-dark'>
                   <p className='subtitle display__name'>ABILITIES</p>
                   <AbilitiesDisplay
-                    first={this.state.pokemon.abilities.first}
-                    second={this.state.pokemon.abilities.second}
-                    hidden={this.state.pokemon.abilities.hidden}
+                    firstName={this.state.pokemon.abilities.first}
+                    secondName={this.state.pokemon.abilities.second}
+                    hiddenName={this.state.pokemon.abilities.hidden}
                   />
                 </article>
               </div>

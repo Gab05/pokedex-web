@@ -1,5 +1,5 @@
 export interface Ability {
-  name?: string
-  battleEffect?: string
-  overworldEffect?: string
+  name: string
+  description: string
+  battleEffect: string
 }
