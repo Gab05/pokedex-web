@@ -3,13 +3,14 @@ import ServiceContainer from '../../services/ServiceContainer'
 import { RouteProps } from 'react-router'
 import { Pokemon } from '../../models/pokemon/Pokemon'
 import { PokemonFactory } from '../../factories/PokemonFactory'
-import { PokemonNameBeautifier } from '../../services/nameBeautifiers/PokemonNameBeautifier'
+import { PokemonNameBeautifier } from '../../services/name-beautifiers/PokemonNameBeautifier'
 import { PokemonService } from '../../services/pokemon/PokemonService'
 import { TypesDisplay } from '../type/TypesDisplay'
 import { AbilitiesDisplay } from './abilities/AbilitiesDisplay'
 import { CaptureRateDisplay } from './basic/CaptureRateDisplay'
 import { GenderRatioDisplay } from './basic/GenderRatioDisplay'
 import { WeightDisplay } from './basic/WeightDisplay'
+import { LearnedMovesDisplay } from './learned-moves/LearnedMovesDisplay'
 import { PokemonSprites } from './PokemonSprites'
 import { PokemonTitle } from './title/PokemonTitle'
 import { StatsDisplay } from './stats/StatsDisplay'
@@ -93,20 +94,29 @@ export class PokemonDisplay extends React.Component<any & RouteProps, PokemonDis
               </div>
             </div>
             <div className='tile is-12'>
-              <div className='tile is-parent 4'>
-                <article className='tile is-child notification is-dark'>
-                  <p className='subtitle display__name'>ABILITIES</p>
-                  <AbilitiesDisplay
-                    firstName={this.state.pokemon.abilities.first}
-                    secondName={this.state.pokemon.abilities.second}
-                    hiddenName={this.state.pokemon.abilities.hidden}
-                  />
-                </article>
+              <div className='tile is-4'>
+                <div className='tile is-parent is-12'>
+                  <article className='tile is-child notification is-dark'>
+                    <p className='subtitle display__name'>ABILITIES</p>
+                    <AbilitiesDisplay
+                      firstName={this.state.pokemon.abilities.first}
+                      secondName={this.state.pokemon.abilities.second}
+                      hiddenName={this.state.pokemon.abilities.hidden}
+                    />
+                  </article>
+                </div>
               </div>
-              <div className='tile is-parent is-8'>
-                <article className='tile is-child notification is-dark'>
-                  <p className='subtitle display__name'>MOVES (soon!)</p>
-                </article>
+              <div className='tile is-8'>
+                <div className='tile is-parent is-12'>
+                  <article className='tile is-child notification is-dark'>
+                    <p className='subtitle display__name'>MOVES</p>
+                    <LearnedMovesDisplay
+                      eggMovesLearned={this.state.pokemon.eggMoves}
+                      tmMovesLearned={this.state.pokemon.tmMoves}
+                      levelupMovesLearned={this.state.pokemon.levelUpMoves}
+                    />
+                  </article>
+                </div>
               </div>
             </div>
           </div>

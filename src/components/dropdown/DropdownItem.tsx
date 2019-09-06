@@ -1,9 +1,9 @@
 import React from 'react'
 import ServiceContainer from '../../services/ServiceContainer'
-import { NameBeautifier } from '../../services/nameBeautifiers/NameBeautifier'
-import { GenericNameBeautifier } from '../../services/nameBeautifiers/GenericNameBeautifier'
+import { NameBeautifier } from '../../services/name-beautifiers/NameBeautifier'
+import { GenericNameBeautifier } from '../../services/name-beautifiers/GenericNameBeautifier'
 import { ResourceType } from '../../models/ResourceType'
-import { PokemonNameBeautifier } from '../../services/nameBeautifiers/PokemonNameBeautifier'
+import { PokemonNameBeautifier } from '../../services/name-beautifiers/PokemonNameBeautifier'
 import './DropdownItem.css'
 
 interface DropdownItemProps {

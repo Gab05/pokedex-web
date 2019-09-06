@@ -10,14 +10,8 @@ export class AbilityService {
 
   public getAbilityList = () => [] // TODO
 
-  public fetchAbility = (name: string) => {
-    console.log('Fetching ability ', name)
-    return fetch(this.BASE_URL + '/abilities/' + name)
-      .then((response: Response) => {
-        console.log('first response: ', response)
-        return response
-      })
+  public fetchAbility = (name: string) =>
+    fetch(this.BASE_URL + '/abilities/' + name)
       .then((response: Response) => response.json())
       .then((ability: Ability) => ability)
-  }
 }

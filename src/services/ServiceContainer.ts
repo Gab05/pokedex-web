@@ -4,9 +4,9 @@ import { MoveFactory } from '../factories/MoveFactory'
 import { PokemonFactory } from '../factories/PokemonFactory'
 import { AbilityService } from './ability/AbilityService'
 import { MoveService } from './move/MoveService'
-import { GenericNameBeautifier } from './nameBeautifiers/GenericNameBeautifier'
-import { NameBeautifier } from './nameBeautifiers/NameBeautifier'
-import { PokemonNameBeautifier } from './nameBeautifiers/PokemonNameBeautifier'
+import { GenericNameBeautifier } from './name-beautifiers/GenericNameBeautifier'
+import { NameBeautifier } from './name-beautifiers/NameBeautifier'
+import { PokemonNameBeautifier } from './name-beautifiers/PokemonNameBeautifier'
 import { PokemonService } from './pokemon/PokemonService'
 
 const ServiceContainer = new Container()
