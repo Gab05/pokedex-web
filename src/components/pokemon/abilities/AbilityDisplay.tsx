@@ -1,8 +1,8 @@
 import React from 'react'
-import './AbilityDisplay.css'
-import { GenericNameBeautifier } from '../../../services/name-beautifiers/GenericNameBeautifier'
 import ServiceContainer from '../../../services/ServiceContainer'
+import { GenericNameBeautifier } from '../../../services/name-beautifiers/GenericNameBeautifier'
 import { LoadingSpinner } from '../../LoadingSpinner'
+import './AbilityDisplay.css'
 
 interface AbilityDisplayProps {
   title: string

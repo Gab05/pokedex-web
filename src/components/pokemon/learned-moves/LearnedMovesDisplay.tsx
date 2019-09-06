@@ -7,6 +7,7 @@ import { MoveFilter } from '../../../services/move/requests/MoveFilter'
 import { MovesRequest } from '../../../services/move/requests/MovesRequest'
 import ServiceContainer from '../../../services/ServiceContainer'
 import { LoadingSpinner } from '../../LoadingSpinner'
+import { EggMovesDisplay } from './egg/EggMovesDisplay'
 
 interface LearnedMovesDisplayProps {
   eggMovesLearned: string[]
@@ -38,20 +39,14 @@ export class LearnedMovesDisplay extends React.Component<LearnedMovesDisplayProp
 
   render() {
     return (
-      <div>
-        <div>{this.state.eggMoves ? this.displayEggMoves() : <LoadingSpinner/>}</div>
+      <div className='container'>
+        <div>
+          {this.state.eggMoves ? <EggMovesDisplay moveList={this.state.eggMoves}/> : <LoadingSpinner/>}
+        </div>
         <div>{this.state.tmMoves ? this.state.tmMoves.toString(): <LoadingSpinner/>}</div>
         <div>{this.state.levelupMoves ? this.state.levelupMoves.toString() : <LoadingSpinner/>}</div>
       </div>
     )
-  }
-
-  private displayEggMoves = (): JSX.Element[] => {
-    const elements: JSX.Element[] = []
-    if (this.state.eggMoves) this.state.eggMoves.map((move: Move) => elements.push(
-      <div>{move.name}</div>
-    ))
-    return elements
   }
 
   private fetchEggMoves = (): void => {

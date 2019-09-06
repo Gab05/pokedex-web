@@ -18,7 +18,7 @@ export class PokemonTitle extends React.Component<PokemonTitleProps, any> {
               #{this.props.nationalNumber ? this.props.nationalNumber: ''} {this.props.beautifiedName}
             </h1>
             <img
-              src={process.env.PUBLIC_URL + '/icons/pokemons/' + this.props.name + '.png'}
+              src={`${process.env.PUBLIC_URL}/icons/pokemons/${this.props.name}.png`}
               className='pokemon-title__icon level-item'
               alt=''
             />

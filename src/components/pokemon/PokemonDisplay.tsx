@@ -109,7 +109,7 @@ export class PokemonDisplay extends React.Component<any & RouteProps, PokemonDis
               <div className='tile is-8'>
                 <div className='tile is-parent is-12'>
                   <article className='tile is-child notification is-dark'>
-                    <p className='subtitle display__name'>MOVES</p>
+                    <p className='subtitle display__name'>LEARNED MOVES</p>
                     <LearnedMovesDisplay
                       eggMovesLearned={this.state.pokemon.eggMoves}
                       tmMovesLearned={this.state.pokemon.tmMoves}

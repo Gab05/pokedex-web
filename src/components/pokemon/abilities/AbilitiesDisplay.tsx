@@ -1,7 +1,7 @@
 import React from 'react'
+import ServiceContainer from '../../../services/ServiceContainer'
 import { Ability } from '../../../models/pokemon/ability/Ability'
 import { AbilityService } from '../../../services/ability/AbilityService'
-import ServiceContainer from '../../../services/ServiceContainer'
 import { AbilityDisplay } from './AbilityDisplay'
 
 interface AbilitiesDisplayProps {
