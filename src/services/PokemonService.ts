@@ -11,5 +11,6 @@ export class PokemonService {
 
   getNumberFromName = (name: string): number => pokemonList.indexOf(name) + 1
 
-  fetchPokemonByName = (name: string) => fetch(this.BASE_URL + '/pokemons/' + name).
+  fetchPokemonByName = (name: string) => fetch(this.BASE_URL + '/pokemons/' + name)
+
 }
