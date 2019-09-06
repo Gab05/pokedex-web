@@ -1,0 +1,15 @@
+.pokemon-title {
+    margin-bottom: 52px;
+}
+
+@media (min-width: 800px) {
+    .pokemon-title__text {
+        margin-bottom: 0 !important;
+        padding-left: 52px;
+    }
+}
+
+.pokemon-title__icon {
+    margin-left: 10px;
+    transform: scale(1.5);
+}

@@ -1,0 +1,30 @@
+.pokemon_display {
+    padding-top: 130px;
+}
+
+.notification {
+    padding: 1.25rem !important;
+}
+
+.display__name {
+    font-size: 60%;
+    font-style: italic;
+}
+
+.type-title {
+    padding-bottom: 10px;
+}
+
+.weight-title {
+    padding-bottom: 10px;
+}
+
+@media (max-width: 1024px) {
+    .display__body {
+        margin: 0 24px 0 24px !important;
+    }
+}
+
+.tile.level {
+    margin-bottom: 0 !important;
+}

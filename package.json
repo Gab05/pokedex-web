@@ -18,7 +18,10 @@
     "reflect-metadata": "^0.1.13"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node localServer.js",
+    "start:local": "npm run dev:local",
+    "dev": "react-scripts start",
+    "dev:local": "NODE_ENV=development react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -51,6 +54,6 @@
     "sinon": "^7.3.2",
     "tslint": "^5.16.0",
     "tslint-react": "^4.0.0",
-    "typescript": "^3.4.5"
+    "typescript": "^3.5.1"
   }
 }

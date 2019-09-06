@@ -1,0 +1,13 @@
+.weight__display {
+    margin-bottom: 0 !important;
+}
+
+.weight__value {
+    font-weight: bold;
+    font-size: 80%;
+}
+
+.weight__unit {
+    font-size: 80%;
+    color: darkslategrey;
+}

@@ -1,7 +1,5 @@
-import { Ability } from './Ability'
-
 export interface Abilities {
-  first?: Ability,
-  second?: Ability,
-  hidden?: Ability
+  first: string,
+  second: string,
+  hidden: string
 }

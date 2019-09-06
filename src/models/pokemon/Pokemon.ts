@@ -2,6 +2,8 @@ import { Type } from '../type/Type'
 import { Weight } from './basic/Weight'
 import { Abilities } from './ability/Abilities'
 import { Move } from '../move/Move'
+import { LevelUpMove } from './learned-moves/LevelUpMove'
+import { TmMove } from './learned-moves/TmMove'
 import { Stats } from './stats/Stats'
 import { ExpGrowth } from './basic/ExpGrowth'
 import { GenderRatio } from './basic/GenderRatio'
@@ -13,9 +15,9 @@ export interface Pokemon {
   typing: Type[]
   weight: Weight
   abilities: Abilities
-  levelUpMoves?: Move[]
-  breedingMoves?: Move[]
-  tutorMoves?: Move[]
+  levelUpMoves: LevelUpMove[]
+  eggMoves: string[]
+  tmMoves: TmMove[]
   baseStats: Stats
   baseExpGrowth?: ExpGrowth
   baseEggSteps?: number

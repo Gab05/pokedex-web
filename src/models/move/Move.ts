@@ -7,14 +7,14 @@ export interface Move {
   type: Type
   power: number
   accuracy: number
-  category?: MoveCategory
-  maxPP?: number
-  description?: string
+  category: MoveCategory
+  pp: number
   zMovePower?: number
-  battleEffect?: string
-  battleEffectRatio?: number
+  battleDescription: string
+  battleEffect: string
+  battleEffectRate: string
   overworldEffect?: string
-  baseCriticalHitRatio?: number
-  priority?: number
+  criticalHitRatio: number
+  priority: string
   flags?: MoveFlag[]
 }

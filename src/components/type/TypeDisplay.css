@@ -1,0 +1,104 @@
+:root {
+    --bug: #889814;
+    --dark: #2c2828;
+    --dragon: #3a25c6;
+    --electric: #dcbf00;
+    --fairy: #d374d2;
+    --fighting: #82040e;
+    --fire: #ea5a00;
+    --flying: #9bbeff;
+    --ghost: #50228a;
+    --grass: #0da600;
+    --ground: #ab8959;
+    --ice: #2bb9cd;
+    --normal: #717260;
+    --poison: #a900df;
+    --psychic: #d6589c;
+    --rock: #855700;
+    --steel: #7F8890;
+    --water: #5D85D7;
+}
+
+.type__button {
+    width: 75px !important;
+    height: 27px !important;
+    padding-top: 0 !important;
+    border-radius: 7px !important;
+}
+
+.type__button-text {
+    color: white !important;
+    text-shadow: 1px 1px 2px var(--dark) !important;
+}
+
+.bug {
+    background: linear-gradient(#a8b834, #889814) !important;
+}
+
+.dark {
+    background: linear-gradient(#2c2828, #0c0808) !important;
+}
+
+.dragon {
+    background: linear-gradient(#3a25c6, #1a05a6) !important;
+}
+
+.electric {
+    background: linear-gradient(#fcdf20, #dcbf00) !important;
+}
+
+.fairy {
+    background: linear-gradient(#f394f2, #d374d2) !important;
+}
+
+.fighting {
+    background: linear-gradient(#a2242e, #82040e) !important;
+}
+
+.fire {
+    background: linear-gradient(#fa7a20, #ea5a00) !important;
+}
+
+.flying {
+    background: linear-gradient(#9bbeff, #7b9edf) !important;
+}
+
+.ghost {
+    background: linear-gradient(#7042aa, #50228a) !important;
+}
+
+.grass {
+    background: linear-gradient(#2dc602, #0da600) !important;
+}
+
+.ground {
+    background: linear-gradient(#cba979, #ab8959) !important;
+}
+
+.ice {
+    background: linear-gradient(#4bd9ed, #2bb9cd) !important;
+}
+
+.normal {
+    background: linear-gradient(#919280, #717260) !important;
+}
+
+.poison {
+    background: linear-gradient(#a900df, #8900bf) !important;
+}
+
+.psychic {
+    background: linear-gradient(#d6589c, #b6387c) !important;
+}
+
+.rock {
+    background: linear-gradient(#a57720, #855700) !important;
+}
+
+.steel {
+    background: linear-gradient(#9Fa8b0, #7F8890) !important;
+}
+
+.water {
+    background: linear-gradient(#7da5f7, #5d85d7) !important;
+}

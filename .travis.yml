@@ -1,0 +1,5 @@
+language: node_js
+node_js:
+  - "11"
+env:
+  - REACT_APP_POKEDEX_CORE_URL=http://gablalib-pokedex-core.herokuapp.com

@@ -1,0 +1,25 @@
+.move__button {
+    width: 75px !important;
+    height: 27px !important;
+    padding-top: 0 !important;
+    margin-left: 3px !important;
+    border-radius: 7px !important;
+}
+
+.move__button-text {
+    padding-top: 1px;
+    max-height: 23px;
+    text-shadow: 1px 1px 2px var(--dark) !important;
+}
+
+.physical {
+    background: linear-gradient(#ef5749, #cf3729);
+}
+
+.special {
+    background: linear-gradient(#5266d1, #3246b1);
+}
+
+.other {
+    background: linear-gradient(#b19d91, #917d71);
+}

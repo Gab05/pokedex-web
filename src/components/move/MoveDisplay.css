@@ -1,0 +1,21 @@
+.move-display {
+    padding-top: 130px;
+}
+
+.display__name {
+    font-size: 60%;
+    font-style: italic;
+}
+
+.display__value {
+    font-weight: bold;
+}
+
+.tile.level {
+    margin-bottom: 0 !important;
+}
+
+.move-display__battle-description {
+    text-align: left;
+}
+

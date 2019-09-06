@@ -1,27 +1,48 @@
 import React from 'react'
-import { DropdownItem } from './DropdownItem'
+import ServiceContainer from '../../services/ServiceContainer'
+import { SearchResult } from '../../models/SearchResult'
 import { ResourceType } from '../../models/ResourceType'
+import { MoveService } from '../../services/move/MoveService'
+import { DropdownItem } from './DropdownItem'
 import './Dropdown.css'
 
 interface DropdownProps {
   pokemonNames: string[]
+  moveNames: string[]
 }
 
-export class Dropdown extends React.Component<DropdownProps, {}> {
-  render() {
-    const displayedItems: JSX.Element[] = []
+export class Dropdown extends React.Component<DropdownProps, any> {
 
-    for (const name of this.props.pokemonNames)
-      displayedItems.push(<DropdownItem name={name} type={ResourceType.POKEMON} key={name} />)
+  private moveService = ServiceContainer.get(MoveService)
 
-    displayedItems.sort((a, b) => {
-      return a.props.name.localeCompare(b.props.name)
-    })
-
+  public render() {
     return (
       <div className='dropdown__content'>
-        {displayedItems}
+        {this.dropdown()}
       </div>
     )
+  }
+
+  private dropdown() {
+    const dropdown: JSX.Element[] = []
+    const results = this.sortResults()
+
+    results.forEach((r) =>
+      dropdown.push(<DropdownItem name={r.name} resourceType={r.resourceType} type={r.type} key={r.name}/>))
+
+    return dropdown
+  }
+
+  private sortResults = () => {
+    const results: SearchResult[] = []
+
+    this.props.pokemonNames.forEach((pokemon) =>
+      results.push({ name: pokemon, resourceType: ResourceType.POKEMON}))
+
+    this.props.moveNames.forEach((move) =>
+      results.push({ name: move, resourceType: ResourceType.MOVE, type: this.moveService.getType(move) }))
+
+    results.sort((a: SearchResult, b: SearchResult) => a.name.localeCompare(b.name))
+    return results
   }
 }

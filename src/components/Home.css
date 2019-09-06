@@ -1,0 +1,7 @@
+.home__body {
+    display: flex;
+    font-size: 200%;
+    align-items: center;
+    justify-content: center;
+    padding-top: 150px;
+}

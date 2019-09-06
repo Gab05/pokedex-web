@@ -15,7 +15,7 @@ const App = () => {
         <div className='App-body'>
           <Route path='/' exact={true} component={Home} />
           <Route path={`/${ResourceType.POKEMON}/:name`} component={PokemonDisplay} />
-          <Route path={`/${ResourceType.MOVE}/:name`} component={Move} />
+          <Route path={`/${ResourceType.MOVE}/:name`} component={MoveDisplay} />
         </div>
       </Router>
     </div>
