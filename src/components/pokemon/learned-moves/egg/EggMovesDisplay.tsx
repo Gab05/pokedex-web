@@ -8,29 +8,37 @@ interface EggMovesDisplayProps {
   moveList: Move[]
 }
 
-export class EggMovesDisplay extends React.Component<EggMovesDisplayProps, any> {
+interface EggMovesDisplayState {
+  dropdownOpen: boolean
+}
 
-  render() {
-    return (
-      <div>
-        <div
-          className='egg-moves__header tile notification is-success level is-mobile'
-          onClick={this.toggleDropdown}
-        >
-          <div className='level-left'>
-            <img src={eggIcon} className='egg__icon level-item' alt='' />
-            <p className='level-item'>Egg Moves</p>
-          </div>
-          <div className='level-right'>
-            <img src={dropdownArrow} className='arrow__icon' alt='' />
-          </div>
+export class EggMovesDisplay extends React.Component<EggMovesDisplayProps, EggMovesDisplayState> {
+
+  constructor(props: any) {
+    super(props)
+
+    this.state = { dropdownOpen: false }
+  }
+
+  render = () => (
+    <div>
+      <div
+        className='egg-moves__header tile notification is-success level is-mobile'
+        onClick={this.toggleDropdown}
+      >
+        <div className='level-left'>
+          <img src={eggIcon} className='egg__icon level-item' alt='' />
+          <p className='level-item'>Egg Moves</p>
         </div>
-        <div className='egg-moves__dropdown'>
-          {this.renderMoveListElements()}
+        <div className='level-right'>
+          <img src={dropdownArrow} className='arrow__icon' alt='' />
         </div>
       </div>
-    )
-  }
+      <div className='egg-moves__dropdown'>
+        {this.renderMoveListElements()}
+      </div>
+    </div>
+  )
 
   private renderMoveListElements = (): JSX.Element[] => {
     const elements: JSX.Element[] = []
@@ -40,7 +48,7 @@ export class EggMovesDisplay extends React.Component<EggMovesDisplayProps, any> 
     return elements
   }
 
-  private toggleDropdown = (): void => {
-
-  }
+  private toggleDropdown = (): void =>
+    this.setState((previous: EggMovesDisplayState) =>
+      ({ dropdownOpen: !previous.dropdownOpen }))
 }

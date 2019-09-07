@@ -4,6 +4,14 @@
     border-radius: 10px 10px 0 0 !important;
 }
 
+.egg-moves__header.closed {
+    border-radius: 10px 10px 10px 10px !important;
+}
+
+.egg-moves__header:hover {
+    cursor: pointer;
+}
+
 .egg__icon {
     width: 24px;
     height: 28px;
