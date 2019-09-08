@@ -26,6 +26,7 @@ export class MoveTitle extends React.Component<MoveTitleProps, any> {
             </h1>
             <div className='move-title__icon level-item'>
               <TypeDisplay type={this.props.type}/>
+              <p>&nbsp;</p>
               <MoveCategoryDisplay category={this.props.move.category}/>
             </div>
           </div>

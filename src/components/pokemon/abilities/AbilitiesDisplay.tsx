@@ -6,8 +6,8 @@ import { AbilityDisplay } from './AbilityDisplay'
 
 interface AbilitiesDisplayProps {
   firstName: string
-  secondName: string
-  hiddenName: string
+  secondName?: string
+  hiddenName?: string
 }
 
 interface AbilitiesDisplayState {
@@ -27,51 +27,58 @@ export class AbilitiesDisplay extends React.Component<AbilitiesDisplayProps, Abi
   }
 
   componentDidUpdate = (): void => {
-    if (this.props.firstName && !this.state.first) this.fetchFirstAbility()
-    if (this.props.secondName && !this.state.second) this.fetchSecondAbility()
-    if (this.props.hiddenName && !this.state.hidden) this.fetchHiddenAbility()
+    if (!this.state.first) this.fetchFirstAbility()
+    if (!this.state.second) this.fetchSecondAbility()
+    if (!this.state.hidden) this.fetchHiddenAbility()
   }
 
-  render() {
-    return (
-      <div className='container'>
-        <AbilityDisplay
-          title=''
-          value={this.props.firstName}
-          description={this.state.first ? this.state.first.description : ''}
-        />
-        <AbilityDisplay
-          title=''
-          value={this.props.secondName}
-          description={this.state.second ? this.state.second.description : ''}
-        />
-        <AbilityDisplay
-          title='(Hidden)'
-          value={this.props.hiddenName}
-          description={this.state.hidden ? this.state.hidden.description : ''}
-        />
-      </div>
-    )
+  render = (): JSX.Element => (
+    <div className='container'>
+      <AbilityDisplay
+        title=''
+        value={this.props.firstName}
+        description={this.state.first ? this.state.first.description : ''}
+      />
+      <AbilityDisplay
+        title=''
+        value={this.props.secondName ? this.props.secondName: ''}
+        description={this.state.second ? this.state.second.description : ''}
+      />
+      <AbilityDisplay
+        title='(Hidden)'
+        value={this.props.hiddenName ? this.props.hiddenName: ''}
+        description={this.state.hidden ? this.state.hidden.description : ''}
+      />
+    </div>
+  )
+
+  private fetchFirstAbility = (): void => {
+    this.abilityService
+      .fetchAbility(this.props.firstName)
+      .then((ability: Ability) =>
+        this.setState((previous: AbilitiesDisplayState) =>
+          ({ ...previous, first: ability })
+        )
+      )
   }
 
-  private fetchFirstAbility = () => {
-    this.abilityService.fetchAbility(this.props.firstName)
-      .then((ability: Ability) => {
-        this.setState((previous: AbilitiesDisplayState) => ({ ...previous, first: ability }))
-      })
+  private fetchSecondAbility = (): void => {
+    if (this.props.secondName) this.abilityService
+      .fetchAbility(this.props.secondName)
+      .then((ability: Ability) =>
+        this.setState((previous: AbilitiesDisplayState) =>
+          ({ ...previous, second: ability })
+        )
+      )
   }
 
-  private fetchSecondAbility = () => {
-    this.abilityService.fetchAbility(this.props.secondName)
-      .then((ability: Ability) => {
-        this.setState((previous: AbilitiesDisplayState) => ({ ...previous, second: ability }))
-      })
-  }
-
-  private fetchHiddenAbility = () => {
-    this.abilityService.fetchAbility(this.props.hiddenName)
-      .then((ability: Ability) => {
-        this.setState((previous: AbilitiesDisplayState) => ({ ...previous, hidden: ability }))
-      })
+  private fetchHiddenAbility = (): void => {
+    if (this.props.hiddenName) this.abilityService
+      .fetchAbility(this.props.hiddenName)
+      .then((ability: Ability) =>
+        this.setState((previous: AbilitiesDisplayState) =>
+          ({ ...previous, hidden: ability })
+        )
+      )
   }
 }

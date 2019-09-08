@@ -14,7 +14,7 @@ export class AbilityDisplay extends React.Component<AbilityDisplayProps, any> {
 
   private readonly nameBeautifier = ServiceContainer.get(GenericNameBeautifier)
 
-  render = () => this.displayAbility()
+  render = (): JSX.Element => this.displayAbility()
 
   private displayAbility = (): JSX.Element => {
     if (!this.props.value) return <div/>

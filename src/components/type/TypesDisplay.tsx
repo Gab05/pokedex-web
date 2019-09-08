@@ -9,17 +9,10 @@ interface TypesDisplayProps {
 
 export class TypesDisplay extends React.Component<TypesDisplayProps, any> {
 
-  render() {
-    const displayTypes = this.displayTypes()
-    return (
-      <div className='container'>
-        {displayTypes.length ? displayTypes: <LoadingSpinner/>}
-      </div>
-    )
-  }
+  render = (): JSX.Element => <div>{this.displayTypes()}</div>
 
-  private displayTypes = (): JSX.Element[] =>
-    this.props.types!!.map(
-      (t: Type) => <div key={t}><TypeDisplay type={t}/></div>
-    )
+  private displayTypes = (): JSX.Element[] | JSX.Element =>
+    this.props.types
+      ? this.props.types.map((t: Type) => <div key={t}><TypeDisplay type={t}/></div>)
+      : <LoadingSpinner/>
 }

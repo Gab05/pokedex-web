@@ -6,7 +6,6 @@ import { Type } from '../models/type/Type'
 
 @injectable()
 export class MoveFactory {
-
   public createBlankMove = (): Move => ({
     name: '',
     type: Type.NONE,
@@ -22,5 +21,5 @@ export class MoveFactory {
     criticalHitRatio: 0,
     priority: '',
     flags: [],
-  }) as Move
+  })
 }

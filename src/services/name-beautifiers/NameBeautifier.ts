@@ -1,3 +1,3 @@
 export interface NameBeautifier {
-  beautifyName(name: string): string
+  beautifyName: (name: string) => string
 }

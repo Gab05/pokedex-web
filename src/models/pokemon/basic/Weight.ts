@@ -1,4 +1,4 @@
 export interface Weight {
-  lbs?: string
-  kg?: string
+  lbs: string
+  kg: string
 }

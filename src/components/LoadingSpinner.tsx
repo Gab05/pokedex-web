@@ -3,5 +3,6 @@ import pokeballLogo from '../assets/pokeball.png'
 import './LoadingSpinner.css'
 
 export class LoadingSpinner extends React.Component {
-  render = () => <img className='loadingspinner__image' src={pokeballLogo} alt=''/>
+  render = (): JSX.Element =>
+    <img className='loadingspinner__image' src={pokeballLogo} alt=''/>
 }

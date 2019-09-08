@@ -9,17 +9,16 @@ export class PokemonService {
 
   private readonly BASE_URL = getPokedexCoreUrl()
 
-  public getPokemonList = () => pokemonList
+  public getPokemonList = (): string[] => pokemonList
 
-  public fetchPokemonByName = (name: string) =>
-    fetch(this.BASE_URL + '/pokemons/' + name)
+  public fetchPokemonByName = (name: string): Promise<Pokemon> =>
+    fetch(`${this.BASE_URL}/pokemons/${name}`)
       .then((response: Response) => response.json())
       .then((pokemon: Pokemon) => pokemon)
 
-  public getNormalSpriteUrl = (name: string) => {
-    console.log(this.BASE_URL)
-    return this.BASE_URL + '/pokemons/' + name + '/sprite/normal'
-  }
+  public getNormalSpriteUrl = (name: string): string =>
+    `${this.BASE_URL}/pokemons/${name}/sprite/normal`
 
-  public getShinySpriteUrl = (name: string) => this.BASE_URL + '/pokemons/' + name + '/sprite/shiny'
+  public getShinySpriteUrl = (name: string): string =>
+    `${this.BASE_URL}/pokemons/${name}/sprite/shiny`
 }

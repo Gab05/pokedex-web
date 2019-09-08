@@ -5,22 +5,18 @@ import { injectable } from 'inversify'
 @injectable()
 export class PokemonNameBeautifier implements NameBeautifier {
 
-  beautifyName = (name: string): string => {
-    name = name.replace(/_/g, ' ')
-    name = this.capitalizeEachWord(name)
-    return this.handlePokemonNameExceptions(name)
-  }
+  beautifyName = (name: string): string =>
+    this.handlePokemonNameExceptions(
+      this.capitalizeEachWord(name.replace(/_/g, ' '))
+    )
 
-  private capitalizeEachWord = (str: string) => {
-    const splitStr = str.toLowerCase().split(' ')
+  private capitalizeEachWord = (str: string): string =>
+    str
+      .split(' ')
+      .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ')
 
-    for (let i = 0; i < splitStr.length; i++)
-      splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1)
-
-    return splitStr.join(' ')
-  }
-
-  private handlePokemonNameExceptions = (name: string) => {
+  private handlePokemonNameExceptions = (name: string): string => {
     switch (name) {
       case 'Mr Mime':
         return 'Mr. Mime'
@@ -41,7 +37,7 @@ export class PokemonNameBeautifier implements NameBeautifier {
       case 'Ho Oh':
         return 'Ho-Oh'
       case 'Farfetch D':
-        return 'Farfetch\'d'
+        return `Farfetch'd`
       default:
         return name
     }
