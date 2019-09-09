@@ -4,6 +4,7 @@ import { TypeDisplay } from '../../../type/TypeDisplay'
 import { MoveCategoryDisplay } from '../../../move/title/MoveCategoryDisplay'
 import { GenericNameBeautifier } from '../../../../services/name-beautifiers/GenericNameBeautifier'
 import ServiceContainer from '../../../../services/ServiceContainer'
+import './EggMoveDisplay.css'
 
 interface EggMoveDisplayProps {
   move: Move
@@ -22,15 +23,20 @@ export class EggMoveDisplay extends React.Component<EggMoveDisplayProps, any> {
           </a>
         </div>
 
-        <div className='column is-3 has-text-left'>
+        <div className='column is-2 has-text-right'>
             <TypeDisplay type={this.props.move.type}/>
-            <MoveCategoryDisplay category={this.props.move.category}/>
         </div>
 
-        <div className='column is-1'>{this.props.move.power === -1 ? '--' : this.props.move.power}</div>
-        <div className='column is-1'>{this.props.move.accuracy === -1 ? '--' : this.props.move.accuracy}</div>
-        <div className='column is-2'>{this.props.move.pp} PP</div>
-        <div className='column is-2'/>
+        <div className='column is-2 has-text-left'>
+          <MoveCategoryDisplay category={this.props.move.category}/>
+        </div>
+
+        <div className='column is-1 has-text-centered'>
+          {this.props.move.power === -1 ? '--' : this.props.move.power}</div>
+        <div className='column is-1 has-text-centered'>
+          {this.props.move.accuracy === -1 ? '--' : this.props.move.accuracy}
+        </div>
+        <div className='column is-2 has-text-centered'>{this.props.move.pp}</div>
       </div>
     </div>
   )

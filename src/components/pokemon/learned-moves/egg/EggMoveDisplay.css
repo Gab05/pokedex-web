@@ -1,0 +1,12 @@
+.move__name {
+    text-decoration: none !important;
+}
+
+.move__name:hover {
+    text-decoration: underline !important;
+    color: #0f81cc !important;
+}
+
+.column.button {
+    transform: scale(0.1);
+}

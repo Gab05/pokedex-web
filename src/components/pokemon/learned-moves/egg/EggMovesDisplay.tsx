@@ -43,15 +43,32 @@ export class EggMovesDisplay extends React.Component<EggMovesDisplayProps, EggMo
   )
 
   private renderMoveListElements = (): JSX.Element[] => {
+    const listElements: JSX.Element[] = Array.of(this.generateListHeader())
     const classIfLast = (move: Move): string =>
       this.props.moveList.indexOf(move) === this.props.moveList.length - 1 ? 'last' : ''
 
-    return this.props.moveList.map((move: Move) => (
-      <div key={move.name} className={`box egg__move ${classIfLast(move)}`}>
-        <EggMoveDisplay move={move}/>
-      </div>
-    ))
+    this.props.moveList.forEach((move: Move): void => {
+      listElements.push(
+        <div key={move.name} className={`box egg__move ${classIfLast(move)}`}>
+          <EggMoveDisplay move={move}/>
+        </div>
+      )
+    })
+
+    return listElements
   }
+
+  private generateListHeader = (): JSX.Element => (
+      <div className='container list__header'>
+        <div className='columns is-mobile'>
+          <div className='column is-4 has-text-centered'>Name</div>
+          <div className='column is-4 has-text-centered'>Type & Category</div>
+          <div className='column is-1 has-text-centered'>Pow.</div>
+          <div className='column is-1 has-text-centered'>Acc.</div>
+          <div className='column is-2 has-text-centered'>PP</div>
+        </div>
+      </div>
+  )
 
   private toggleDropdown = (): void => {
     this.updateDropdownHeader(this.state.dropdownClosed)
