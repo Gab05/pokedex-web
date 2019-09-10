@@ -111,7 +111,6 @@ export class LearnedMovesDisplay extends React.Component<LearnedMovesDisplayProp
         .find((move: Move) => move.name === tmLearned.move)
       )
     )
-    console.log('Passed tm moves:', moveMap)
     return moveMap
   }
 }

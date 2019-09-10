@@ -52,9 +52,8 @@ export class LevelupMovesDisplay extends React.Component<LevelupMovesDisplayProp
       <div className='columns is-mobile'>
         <div className='column is-1 has-text-centered'>Lv.</div>
         <div className='column is-3 has-text-centered'>Name</div>
-        <div className='column is-4 has-text-centered'>Type & Category</div>
-        <div className='column is-1 has-text-centered'>Pow.</div>
-        <div className='column is-1 has-text-centered'>Acc.</div>
+        <div className='column is-3 has-text-centered'>Type & category</div>
+        <div className='column is-3 has-text-centered'>Power & accuracy</div>
         <div className='column is-2 has-text-centered'>PP</div>
       </div>
     </div>
