@@ -22,5 +22,5 @@ git commit -m "Travis build: $TRAVIS_BUILD_NUMBER"
 echo "INFO - done merging develop into master!"
 
 echo "INFO - pushing refs to remote..."
-git push --set-upstream origin master
+git push -u origin master
 echo "Done! Merged develop into master."
