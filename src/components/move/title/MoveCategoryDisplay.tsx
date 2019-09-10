@@ -5,13 +5,14 @@ import './MoveCategoryDisplay.css'
 
 interface MoveCategoryDisplayProps {
   category: MoveCategory
+  classes?: string
 }
 
 export class MoveCategoryDisplay extends React.Component<MoveCategoryDisplayProps, any> {
 
   render() {
     return (
-      <button className={'move__button button ' + this.props.category.toLowerCase()}>
+      <button className={this.computeClasses()}>
         {this.display()}
       </button>
     )
@@ -21,4 +22,7 @@ export class MoveCategoryDisplay extends React.Component<MoveCategoryDisplayProp
     : <img src={this.iconUrl()} className='move__button-text' alt=''/>
 
   private iconUrl = (): string => process.env.PUBLIC_URL + '/icons/moves/' + this.props.category.toLowerCase() + '.svg'
+
+  private computeClasses = (): string =>
+    `button ${this.props.category.toLowerCase()} move__button ${this.props.classes ? this.props.classes : ''}`
 }

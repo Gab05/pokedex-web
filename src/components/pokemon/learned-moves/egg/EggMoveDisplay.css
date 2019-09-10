@@ -1,3 +1,7 @@
+.egg-move__display {
+    font-size: 85%;
+}
+
 .move__name {
     text-decoration: none !important;
 }
@@ -5,4 +9,12 @@
 .move__name:hover {
     text-decoration: underline !important;
     color: #0f81cc !important;
+}
+
+.column {
+    margin: auto;
+}
+
+.level.custom-level-height {
+    margin: auto !important;
 }
