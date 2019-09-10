@@ -7,7 +7,7 @@ echo "INFO - done setting up Travis user!"
 
 echo "INFO - cloning repo..."
 git clone https://travis-ci:${GH_TOKEN}@github.com/Gab05/pokedex-web.git --branch=master
-cd pokedex-core
+cd pokedex-web
 git remote rm origin
 git remote add origin https://travis-ci:${GH_TOKEN}@github.com/Gab05/pokedex-web.git
 echo "INFO - done cloning repo!"
