@@ -2,15 +2,15 @@ import React from 'react'
 import ServiceContainer from '../../../services/ServiceContainer'
 import { GenericNameBeautifier } from '../../../services/name-beautifiers/GenericNameBeautifier'
 import { LoadingSpinner } from '../../LoadingSpinner'
-import './AbilityDisplay.css'
+import './PokemonAbilityDisplay.css'
 
-interface AbilityDisplayProps {
+interface PokemonAbilityDisplayProps {
   title: string
   value: string
   description: string
 }
 
-export class AbilityDisplay extends React.Component<AbilityDisplayProps, any> {
+export class PokemonAbilityDisplay extends React.Component<PokemonAbilityDisplayProps, any> {
 
   private readonly nameBeautifier = ServiceContainer.get(GenericNameBeautifier)
 

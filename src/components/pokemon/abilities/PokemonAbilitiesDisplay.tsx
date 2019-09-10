@@ -1,22 +1,22 @@
-import React from 'react'
+import React, { Component } from 'react'
 import ServiceContainer from '../../../services/ServiceContainer'
 import { Ability } from '../../../models/pokemon/ability/Ability'
 import { AbilityService } from '../../../services/ability/AbilityService'
-import { AbilityDisplay } from './AbilityDisplay'
+import { PokemonAbilityDisplay } from './PokemonAbilityDisplay'
 
-interface AbilitiesDisplayProps {
+interface PokemonAbilitiesDisplayProps {
   firstName: string
   secondName?: string
   hiddenName?: string
 }
 
-interface AbilitiesDisplayState {
+interface PokemonAbilitiesDisplayState {
   first?: Ability
   second?: Ability
   hidden?: Ability
 }
 
-export class AbilitiesDisplay extends React.Component<AbilitiesDisplayProps, AbilitiesDisplayState> {
+export class PokemonAbilitiesDisplay extends Component<PokemonAbilitiesDisplayProps, PokemonAbilitiesDisplayState> {
 
   private readonly abilityService = ServiceContainer.get(AbilityService)
 
@@ -34,17 +34,17 @@ export class AbilitiesDisplay extends React.Component<AbilitiesDisplayProps, Abi
 
   render = (): JSX.Element => (
     <div className='container'>
-      <AbilityDisplay
+      <PokemonAbilityDisplay
         title=''
         value={this.props.firstName}
         description={this.state.first ? this.state.first.description : ''}
       />
-      <AbilityDisplay
+      <PokemonAbilityDisplay
         title=''
         value={this.props.secondName ? this.props.secondName: ''}
         description={this.state.second ? this.state.second.description : ''}
       />
-      <AbilityDisplay
+      <PokemonAbilityDisplay
         title='(Hidden)'
         value={this.props.hiddenName ? this.props.hiddenName: ''}
         description={this.state.hidden ? this.state.hidden.description : ''}
@@ -56,7 +56,7 @@ export class AbilitiesDisplay extends React.Component<AbilitiesDisplayProps, Abi
     this.abilityService
       .fetchAbility(this.props.firstName)
       .then((ability: Ability) =>
-        this.setState((previous: AbilitiesDisplayState) =>
+        this.setState((previous: PokemonAbilitiesDisplayState) =>
           ({ ...previous, first: ability })
         )
       )
@@ -66,7 +66,7 @@ export class AbilitiesDisplay extends React.Component<AbilitiesDisplayProps, Abi
     if (this.props.secondName) this.abilityService
       .fetchAbility(this.props.secondName)
       .then((ability: Ability) =>
-        this.setState((previous: AbilitiesDisplayState) =>
+        this.setState((previous: PokemonAbilitiesDisplayState) =>
           ({ ...previous, second: ability })
         )
       )
@@ -76,7 +76,7 @@ export class AbilitiesDisplay extends React.Component<AbilitiesDisplayProps, Abi
     if (this.props.hiddenName) this.abilityService
       .fetchAbility(this.props.hiddenName)
       .then((ability: Ability) =>
-        this.setState((previous: AbilitiesDisplayState) =>
+        this.setState((previous: PokemonAbilitiesDisplayState) =>
           ({ ...previous, hidden: ability })
         )
       )

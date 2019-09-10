@@ -8,6 +8,8 @@ import { MovesRequest } from '../../../services/move/requests/MovesRequest'
 import ServiceContainer from '../../../services/ServiceContainer'
 import { LoadingSpinner } from '../../LoadingSpinner'
 import { EggMovesDisplay } from './egg/EggMovesDisplay'
+import { LevelupMovesDisplay } from './levelUp/LevelupMovesDisplay'
+import { TmMovesDisplay } from './tm/TmMovesDisplay'
 
 interface LearnedMovesDisplayProps {
   eggMovesLearned: string[]
@@ -41,10 +43,14 @@ export class LearnedMovesDisplay extends React.Component<LearnedMovesDisplayProp
     return (
       <div className='container'>
         <div>
+          {this.state.levelupMoves ? <LevelupMovesDisplay moveMap={this.mapLevelupMoves()}/> : <LoadingSpinner/>}
+        </div>
+        <div>
+          {this.state.tmMoves ? <TmMovesDisplay moveMap={this.mapTmMoves()} />: <LoadingSpinner/>}
+        </div>
+        <div>
           {this.state.eggMoves ? <EggMovesDisplay moveList={this.state.eggMoves}/> : <LoadingSpinner/>}
         </div>
-        <div>{this.state.tmMoves ? this.state.tmMoves.toString(): <LoadingSpinner/>}</div>
-        <div>{this.state.levelupMoves ? this.state.levelupMoves.toString() : <LoadingSpinner/>}</div>
       </div>
     )
   }
@@ -84,5 +90,28 @@ export class LearnedMovesDisplay extends React.Component<LearnedMovesDisplayProp
         this.setState((previous: LearnedMovesDisplayState) =>
           ({ ...previous, levelupMoves: moves }))
       })
+  }
+
+  private mapLevelupMoves = (): Map<string, Move> => {
+    const moveMap = new Map<string, Move>()
+    this.props.levelupMovesLearned.map((levelupLearned: LevelUpMove) =>
+      // @ts-ignore
+      moveMap.set(levelupLearned.level, this.state.levelupMoves!
+        .find((move: Move) => move.name === levelupLearned.move)
+      )
+    )
+    return moveMap
+  }
+
+  private mapTmMoves = (): Map<string, Move> => {
+    const moveMap = new Map<string, Move>()
+    this.props.tmMovesLearned.map((tmLearned: TmMove) =>
+      // @ts-ignore
+      moveMap.set(tmLearned.tm, this.state.tmMoves!
+        .find((move: Move) => move.name === tmLearned.move)
+      )
+    )
+    console.log('Passed tm moves:', moveMap)
+    return moveMap
   }
 }

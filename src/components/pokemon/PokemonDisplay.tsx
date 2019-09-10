@@ -6,7 +6,7 @@ import { PokemonFactory } from '../../factories/PokemonFactory'
 import { PokemonNameBeautifier } from '../../services/name-beautifiers/PokemonNameBeautifier'
 import { PokemonService } from '../../services/pokemon/PokemonService'
 import { TypesDisplay } from '../type/TypesDisplay'
-import { AbilitiesDisplay } from './abilities/AbilitiesDisplay'
+import { PokemonAbilitiesDisplay } from './abilities/PokemonAbilitiesDisplay'
 import { CaptureRateDisplay } from './basic/CaptureRateDisplay'
 import { GenderRatioDisplay } from './basic/GenderRatioDisplay'
 import { WeightDisplay } from './basic/WeightDisplay'
@@ -98,7 +98,7 @@ export class PokemonDisplay extends React.Component<any & RouteProps, PokemonDis
                 <div className='tile is-parent is-12'>
                   <article className='tile is-child notification is-dark'>
                     <p className='subtitle display__name'>ABILITIES</p>
-                    <AbilitiesDisplay
+                    <PokemonAbilitiesDisplay
                       firstName={this.state.pokemon.abilities.first}
                       secondName={this.state.pokemon.abilities.second}
                       hiddenName={this.state.pokemon.abilities.hidden}
