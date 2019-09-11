@@ -1,6 +1,6 @@
 import 'reflect-metadata'
 import { injectable } from 'inversify'
-import { getPokedexCoreUrl } from '../UrlProvider'
+import { UrlProvider } from '../UrlProvider'
 import { Move } from '../../models/move/Move'
 import { Type } from '../../models/type/Type'
 import moveList from '../../assets/moveList'
@@ -10,7 +10,7 @@ import { MoveEntity } from '../../models/move/MoveEntity'
 @injectable()
 export class MoveService {
 
-  private readonly BASE_URL = getPokedexCoreUrl()
+  private readonly urlProvider = new UrlProvider()
 
   public getMoveList = (): MoveEntity[] => moveList
 
@@ -19,12 +19,12 @@ export class MoveService {
     .map((m) => m.type)[0] as Type
 
   public fetchMoveByName = (name: string): Promise<Move> =>
-    fetch(`${this.BASE_URL}/moves/${name}`)
+    fetch(`${this.urlProvider.getPokedexCoreUrl}/moves/${name}`)
     .then((response: Response) => response.json())
     .then((move: Move) => move)
 
   public fetchMoves = (request?: MovesRequest): Promise<Move[]> =>
-    fetch(`${this.BASE_URL}/moves`, this.buildMovesRequest(request))
+    fetch(`${this.urlProvider.getPokedexCoreUrl}/moves`, this.buildMovesRequest(request))
       .then((response: Response) => response.json())
       .then((moves: Move[]) => moves)
 
