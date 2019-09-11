@@ -1,11 +1,22 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { Router } from 'react-router'
 import { App } from './App'
+import { shallow, ShallowWrapper } from 'enzyme'
+import { Navbar } from './components/navbar/Navbar'
 
-describe('when running App', () => {
-  it('renders without crashing', () => {
-    const div = document.createElement('div')
-    ReactDOM.render(<App/>, div)
-    ReactDOM.unmountComponentAtNode(div)
+describe('App', () => {
+
+  let wrapper: ShallowWrapper
+
+  beforeEach(() => {
+    wrapper = shallow(<App/>)
+  })
+
+  it('should render the Router', () => {
+    expect(wrapper.find(Router)).toBeTruthy()
+  })
+
+  it('should render the Navbar', () => {
+    expect(wrapper.find(Navbar)).toBeTruthy()
   })
 })
