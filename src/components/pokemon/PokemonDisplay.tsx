@@ -15,6 +15,7 @@ import { PokemonSprites } from './PokemonSprites'
 import { PokemonTitle } from './title/PokemonTitle'
 import { StatsDisplay } from './stats/StatsDisplay'
 import './PokemonDisplay.css'
+import { EggGroupsDisplay } from './basic/EggGroupsDisplay'
 
 interface PokemonDisplayState {
   name: string
@@ -37,11 +38,10 @@ export class PokemonDisplay extends React.Component<any & RouteProps, PokemonDis
   }
 
   componentDidMount(): void {
-    this.pokemonService.fetchPokemonByName(this.state.name).then((fetchedPokemon) => {
-      this.setState(() => ({
-        pokemon: fetchedPokemon,
-      }))
-    })
+    this.pokemonService.fetchPokemonByName(this.state.name)
+      .then((pokemon) => {
+        this.setState(() => ({ pokemon }) )
+      })
   }
 
   render() {
@@ -84,6 +84,8 @@ export class PokemonDisplay extends React.Component<any & RouteProps, PokemonDis
                 <div className='tile is-parent is-3'>
                   <article className='tile is-child notification is-info'>
                     <div className='content'>
+                      <p className='display__name'>EGG GROUPS</p>
+                      <EggGroupsDisplay eggGroups={this.state.pokemon.eggGroups}/>
                       <p className='display__name'>CAPTURE RATE</p>
                       <CaptureRateDisplay captureRate={this.state.pokemon.captureRate}/>
                       <p className='display__name'>GENDER RATIO</p>

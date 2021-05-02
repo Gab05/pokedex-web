@@ -1,13 +1,11 @@
 import { Type } from '../type/Type'
 import { Weight } from './basic/Weight'
 import { Abilities } from './ability/Abilities'
-import { Move } from '../move/Move'
 import { LevelUpMove } from './learned-moves/LevelUpMove'
 import { TmMove } from './learned-moves/TmMove'
 import { Stats } from './stats/Stats'
 import { ExpGrowth } from './basic/ExpGrowth'
 import { GenderRatio } from './basic/GenderRatio'
-import { EggGroup } from './basic/EggGroup'
 
 export interface Pokemon {
   name: string
@@ -24,6 +22,6 @@ export interface Pokemon {
   baseHappiness?: number
   genderRatio: GenderRatio
   captureRate: string
-  eggGroup?: EggGroup[]
+  eggGroups?: string[]
   effortValuesYielded?: Stats
 }
