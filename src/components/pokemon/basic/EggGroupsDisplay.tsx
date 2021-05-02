@@ -3,6 +3,7 @@ import ServiceContainer from '../../../services/ServiceContainer'
 import { GenericNameBeautifier } from '../../../services/name-beautifiers/GenericNameBeautifier'
 import { LoadingSpinner } from '../../LoadingSpinner'
 import eggIcon from '../../../assets/egg.png'
+import './EggGroupsDisplay.css'
 
 interface EggGroupsDisplayProps {
   eggGroups?: string[]
@@ -28,14 +29,16 @@ export class EggGroupsDisplay extends React.Component<EggGroupsDisplayProps, any
 
     const links = (this.props.eggGroups || [])
       .map((eggGroup: string) => (
-        <a href={`/eggGroups/${eggGroup}`} key={eggGroup}>
-          {this.nameBeautifier.beautifyName(eggGroup)}
-        </a>
+        <div key={eggGroup} className='egg-group-frame'>
+          <img src={eggIcon} alt='' className='egg-logo'/>
+          <a href={`/eggGroups/${eggGroup}`} key={eggGroup}>
+            {this.nameBeautifier.beautifyName(eggGroup)}
+          </a>
+        </div>
       ))
 
     return (
       <div className='egg-group-container'>
-        <img src={eggIcon} alt=''/>
         {links}
       </div>
     )

@@ -1,0 +1,11 @@
+.egg-logo {
+    max-width: 20px;
+    margin: auto;
+}
+
+.egg-group-frame {
+    border-radius: 8px;
+    background-color: #A914C5;
+    padding: 4px;
+    margin-right: 8px;
+}
