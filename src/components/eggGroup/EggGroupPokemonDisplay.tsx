@@ -46,6 +46,6 @@ export default class EggGroupPokemonDisplay extends Component<any, EggGroupPokem
       return [<LoadingSpinner key={0}/>]
     else
       return this.state.eggGroup.pokemons
-        .map((pokemon: string) => (<div key={pokemon}>{pokemon}</div>))
+        .map((pokemon: string) => (<a key={pokemon} href={`/pokemon/${pokemon}`}>{pokemon}</a>))
   }
 }
