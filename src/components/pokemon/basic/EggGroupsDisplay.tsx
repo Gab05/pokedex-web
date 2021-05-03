@@ -31,7 +31,7 @@ export class EggGroupsDisplay extends React.Component<EggGroupsDisplayProps, any
       .map((eggGroup: string) => (
         <div key={eggGroup} className='egg-group-frame'>
           <img src={eggIcon} alt='' className='egg-logo'/>
-          <a href={`/eggGroups/${eggGroup}`} key={eggGroup}>
+          <a href={`/eggGroup/${eggGroup}`} key={eggGroup}>
             {this.nameBeautifier.beautifyName(eggGroup)}
           </a>
         </div>
