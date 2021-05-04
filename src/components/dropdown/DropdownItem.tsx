@@ -1,11 +1,12 @@
-import React from 'react';
-import eggLogo from '../../assets/egg.png';
-import { ResourceType } from '../../models/ResourceType';
-import { GenericNameBeautifier } from '../../services/name-beautifiers/GenericNameBeautifier';
-import { NameBeautifier } from '../../services/name-beautifiers/NameBeautifier';
-import { PokemonNameBeautifier } from '../../services/name-beautifiers/PokemonNameBeautifier';
-import ServiceContainer from '../../services/ServiceContainer';
-import './DropdownItem.css';
+import 'reflect-metadata'
+import React from 'react'
+import eggLogo from '../../assets/egg.png'
+import { ResourceType } from '../../models/ResourceType'
+import { GenericNameBeautifier } from '../../services/name-beautifiers/GenericNameBeautifier'
+import { NameBeautifier } from '../../services/name-beautifiers/NameBeautifier'
+import { PokemonNameBeautifier } from '../../services/name-beautifiers/PokemonNameBeautifier'
+import ServiceContainer from '../../services/ServiceContainer'
+import './DropdownItem.css'
 
 interface DropdownItemProps {
   resourceType: ResourceType
