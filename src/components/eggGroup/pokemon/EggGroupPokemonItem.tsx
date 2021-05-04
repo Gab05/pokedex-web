@@ -24,7 +24,7 @@ export default class EggGroupPokemonItem extends Component<EggGroupPokemonItemPr
 
   render() {
     return (
-      <div className='pokemon-item tile is-child box is-2'>
+      <div className='pokemon-item tile is-child box notification is-2'>
         <div className='sprite-container'>
           {this.state.loading ? <LoadingSpinner/> : null}
           <a href={`/pokemon/${this.props.pokemonName}`}>
