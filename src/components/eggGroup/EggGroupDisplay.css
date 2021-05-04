@@ -1,0 +1,10 @@
+
+.egg-group-display {
+    padding-top: 128px;
+    padding-bottom: 48px;
+    color: white;
+}
+
+.pokemon-list-display {
+    flex-wrap: wrap;
+}

@@ -1,0 +1,14 @@
+
+.pokemon-item {
+    padding: 8px;
+    margin: 4px !important;
+}
+
+.sprite-container {
+    margin-top: auto;
+}
+
+.pokemon-name-container {
+    margin: auto;
+    bottom: 0;
+}

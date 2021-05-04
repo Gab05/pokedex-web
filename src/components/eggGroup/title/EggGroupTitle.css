@@ -1,0 +1,22 @@
+.egg-group-title {
+    margin-bottom: 52px;
+    background-color: #A914C5;
+}
+
+.egg-group-title__text {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #FFFFFF;
+}
+
+@media (min-width: 800px) {
+    .level-left {
+        margin-bottom: 0 !important;
+        padding-left: 52px;
+    }
+}
+
+.egg-group-title__icon {
+    max-width: 48px;
+    margin-left: 8px;
+}

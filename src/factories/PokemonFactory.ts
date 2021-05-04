@@ -32,7 +32,7 @@ export class PokemonFactory {
     baseHappiness: 0,
     genderRatio: PokemonFactory.createBlankGenderRatio(),
     captureRate: '',
-    eggGroup: [],
+    eggGroups: undefined,
     effortValuesYielded: PokemonFactory.createBlankStats(),
   })
 }
