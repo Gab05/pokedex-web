@@ -79,13 +79,15 @@ export class DropdownItem extends React.Component<DropdownItemProps, DropdownIte
 
   private renderEggGroup = (): JSX.Element => {
     return (
-      <div className='dropdownitem__icon-container level-left'>
+      <div className='dropdownitem__icon-container egg-group-item level-left'>
         <img
           src={eggLogo}
           className='level-item dropdownitem__icon'
           alt=''
         />
-        <span className='level-item'>{this.genericNameBeautifier.beautifyName(this.props.name)}</span>
+        <span className='level-item egg-group-item-name'>
+          {this.genericNameBeautifier.beautifyName(this.props.name)}
+        </span>
       </div>
     )
   }

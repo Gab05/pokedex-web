@@ -4,6 +4,9 @@
 }
 
 .pokemon-item {
+    display: flex !important;
+    flex-direction: column;
+    align-items: flex-end;
     padding: 8px;
     margin: 4px !important;
 }

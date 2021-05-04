@@ -45,3 +45,11 @@
 .egggroup {
     background-color: #ba6dc9;
 }
+
+.egg-group-item {
+    margin-left: 12px;
+}
+
+.egg-group-item-name {
+    margin-left: 6px;
+}
