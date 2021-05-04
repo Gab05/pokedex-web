@@ -15,9 +15,7 @@ export class TypeDisplay extends React.Component<TypeDisplayProps, any> {
 
   render = (): JSX.Element => (
     <button className={this.computeClasses()}>
-      <span className={'type__button-text'}>
         {this.nameBeautifier.beautifyName(this.props.type.toString())}
-      </span>
     </button>
   )
 
