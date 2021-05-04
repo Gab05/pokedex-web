@@ -9,6 +9,7 @@ import './Dropdown.css'
 interface DropdownProps {
   pokemonNames: string[]
   moveNames: string[]
+  eggGroupNames: string[]
 }
 
 export class Dropdown extends React.Component<DropdownProps, any> {
@@ -41,6 +42,9 @@ export class Dropdown extends React.Component<DropdownProps, any> {
 
     this.props.moveNames.forEach((move) =>
       results.push({ name: move, resourceType: ResourceType.MOVE, type: this.moveService.getType(move) }))
+
+    this.props.eggGroupNames.forEach((eggGroup) =>
+      results.push({ name: eggGroup, resourceType: ResourceType.EGG_GROUP }))
 
     results.sort((a: SearchResult, b: SearchResult) => a.name.localeCompare(b.name))
     return results

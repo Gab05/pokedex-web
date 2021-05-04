@@ -13,13 +13,13 @@ export class EggGroupTitle extends React.Component<EggGroupTitleProps, any> {
     return (
       <section className='egg-group-title hero'>
         <div className='hero-body level'>
-          <div className='level-left'>
+          <div className='hero-content level-left'>
             <h1 className='egg-group-title__text level-item has-text-left'>
-              {`${this.props.beautifiedName}`}
+              {this.props.beautifiedName}
             </h1>
             <img src={eggLogo} className='egg-group-title__icon level-item' alt=''/>
             <h1 className='egg-group-title__text level-item has-text-left'>
-              {`Egg Group`}
+              Egg Group
             </h1>
           </div>
         </div>

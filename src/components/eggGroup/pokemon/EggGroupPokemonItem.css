@@ -1,4 +1,8 @@
 
+.pokemon-item-container {
+    margin: 20px;
+}
+
 .pokemon-item {
     padding: 8px;
     margin: 4px !important;

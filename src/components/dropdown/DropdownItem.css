@@ -29,7 +29,7 @@
 
 .dropdownitem__type {
     padding-right: 10px;
-    color: grey !important;
+    color: dimgrey !important;
     font-style: italic;
     font-size: 80%;
 }
@@ -40,4 +40,8 @@
 
 .move {
     background-color: #23d160;
+}
+
+.egggroup {
+    background-color: #ba6dc9;
 }

@@ -1,3 +1,4 @@
+import 'reflect-metadata'
 import { injectable } from 'inversify'
 import { getPokedexCoreUrl } from '../UrlProvider'
 import EggGroup from '../../models/eggGroups/EggGroup'
@@ -12,4 +13,20 @@ export default class EggGroupsService {
       .then((response: Response) => response.json())
       .then((resource: EggGroup) => resource)
   }
+
+  public getEggGroupList = (): string[] => ([
+    'monster',
+    'human-like',
+    'water_1',
+    'water_2',
+    'water_3',
+    'bug',
+    'mineral',
+    'flying',
+    'amorphous',
+    'field',
+    'ditto',
+    'grass',
+    'dragon',
+  ])
 }
