@@ -1,4 +1,3 @@
-import 'chai'
 import { shallow } from 'enzyme'
 import 'mocha'
 import React from 'react'

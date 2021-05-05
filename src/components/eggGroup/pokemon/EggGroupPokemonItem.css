@@ -1,11 +1,18 @@
 
+.pokemon-item-container {
+    margin: 20px;
+}
+
 .pokemon-item {
+    display: flex !important;
+    flex-direction: column;
+    align-items: flex-end;
     padding: 8px;
     margin: 4px !important;
 }
 
 .sprite-container {
-    margin-top: auto;
+    margin: auto;
 }
 
 .pokemon-name-container {

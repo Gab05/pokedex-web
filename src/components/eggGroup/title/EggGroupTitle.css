@@ -1,6 +1,6 @@
 .egg-group-title {
     margin-bottom: 52px;
-    background-color: #A914C5;
+    background-color: #ba6dc9;
 }
 
 .egg-group-title__text {
@@ -9,14 +9,15 @@
     color: #FFFFFF;
 }
 
+.egg-group-title__icon {
+    max-width: 48px;
+    margin-left: 8px;
+}
+
 @media (min-width: 800px) {
-    .level-left {
+    .hero-content {
         margin-bottom: 0 !important;
         padding-left: 52px;
     }
 }
 
-.egg-group-title__icon {
-    max-width: 48px;
-    margin-left: 8px;
-}

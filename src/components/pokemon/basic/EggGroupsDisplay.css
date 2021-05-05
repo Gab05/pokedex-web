@@ -2,12 +2,17 @@
 .egg-logo {
     max-width: 20px;
     margin-top: 4px;
+    margin-right: 8px;
 }
 
 .egg-group-frame {
-    background-color: #A914C5;
+    background-color: #ba6dc9;
+    font-size: 20px;
     border-radius: 8px;
-    padding: 4px;
+    padding: 2px 8px 2px 8px;
     margin-top: 4px;
 }
 
+.egg-group-link {
+    text-decoration: none !important;
+}

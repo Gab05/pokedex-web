@@ -1,9 +1,11 @@
+import 'reflect-metadata'
 import React from 'react'
-import ServiceContainer from '../../services/ServiceContainer'
-import { NameBeautifier } from '../../services/name-beautifiers/NameBeautifier'
-import { GenericNameBeautifier } from '../../services/name-beautifiers/GenericNameBeautifier'
+import eggLogo from '../../assets/egg.png'
 import { ResourceType } from '../../models/ResourceType'
+import { GenericNameBeautifier } from '../../services/name-beautifiers/GenericNameBeautifier'
+import { NameBeautifier } from '../../services/name-beautifiers/NameBeautifier'
 import { PokemonNameBeautifier } from '../../services/name-beautifiers/PokemonNameBeautifier'
+import ServiceContainer from '../../services/ServiceContainer'
 import './DropdownItem.css'
 
 interface DropdownItemProps {
@@ -19,7 +21,7 @@ interface DropdownItemState {
 export class DropdownItem extends React.Component<DropdownItemProps, DropdownItemState> {
 
   private readonly pokemonNameBeautifier: NameBeautifier = ServiceContainer.get(PokemonNameBeautifier)
-  private readonly moveNameBeautifier: NameBeautifier = ServiceContainer.get(GenericNameBeautifier)
+  private readonly genericNameBeautifier: NameBeautifier = ServiceContainer.get(GenericNameBeautifier)
 
   constructor(props: DropdownItemProps) {
     super(props)
@@ -28,18 +30,25 @@ export class DropdownItem extends React.Component<DropdownItemProps, DropdownIte
 
   render() {
     return (
-      <a href={'/' + this.props.resourceType.toLowerCase() + '/' + this.props.name} className='dropdownitem'>
+      <a href={'/' + this.props.resourceType + '/' + this.props.name} className='dropdownitem'>
         <div className={'dropdownitem__row level is-mobile ' + this.props.resourceType.toLowerCase()}>
           {this.renderItemType()}
-          <span className='level-right dropdownitem__type has-text-right'>{this.props.resourceType}</span>
+          <span className='level-right dropdownitem__type has-text-right'>{this.getResourceTypeDisplay()}</span>
         </div>
       </a>
     )
   }
 
+  public getResourceTypeDisplay(): string {
+    if (this.props.resourceType === ResourceType.EGG_GROUP)
+      return 'egg group'
+    return this.props.resourceType
+  }
+
   private renderItemType = (): JSX.Element | undefined => {
     if (this.props.resourceType === ResourceType.POKEMON) return this.renderPokemonType()
     else if (this.props.resourceType === ResourceType.MOVE) return this.renderMoveType()
+    else if (this.props.resourceType === ResourceType.EGG_GROUP) return this.renderEggGroup()
   }
 
   private renderPokemonType = (): JSX.Element => {
@@ -63,7 +72,22 @@ export class DropdownItem extends React.Component<DropdownItemProps, DropdownIte
           className='level-item dropdownitem__icon'
           alt=''
         />
-        <span className='level-item'>{this.moveNameBeautifier.beautifyName(this.props.name)}</span>
+        <span className='level-item'>{this.genericNameBeautifier.beautifyName(this.props.name)}</span>
+      </div>
+    )
+  }
+
+  private renderEggGroup = (): JSX.Element => {
+    return (
+      <div className='dropdownitem__icon-container egg-group-item level-left'>
+        <img
+          src={eggLogo}
+          className='level-item dropdownitem__icon'
+          alt=''
+        />
+        <span className='level-item egg-group-item-name'>
+          {this.genericNameBeautifier.beautifyName(this.props.name)}
+        </span>
       </div>
     )
   }

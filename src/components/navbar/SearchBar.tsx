@@ -1,6 +1,6 @@
 import React from 'react'
+import EggGroupsService from '../../services/eggGroups/EggGroupsService';
 import ServiceContainer from '../../services/ServiceContainer'
-import { ResourceType } from '../../models/ResourceType'
 import { PokemonService } from '../../services/pokemon/PokemonService'
 import { MoveService } from '../../services/move/MoveService'
 import { Dropdown } from '../dropdown/Dropdown'
@@ -12,12 +12,14 @@ interface SearchBarState {
   showDropdown: boolean
   matchingPokemonNames: string[]
   matchingMoveNames: string[]
+  matchingEggGroupsNames: string[]
 }
 
 export class SearchBar extends React.Component<any, SearchBarState> {
 
   private readonly pokemonService = ServiceContainer.get(PokemonService)
   private readonly moveService = ServiceContainer.get(MoveService)
+  private readonly eggGroupsService = ServiceContainer.get(EggGroupsService)
 
   constructor(props: any) {
     super(props)
@@ -26,6 +28,7 @@ export class SearchBar extends React.Component<any, SearchBarState> {
       showDropdown: false,
       matchingPokemonNames: [],
       matchingMoveNames: [],
+      matchingEggGroupsNames: [],
     }
     this.updateQuery = this.updateQuery.bind(this)
   }
@@ -39,6 +42,7 @@ export class SearchBar extends React.Component<any, SearchBarState> {
       <div className='searchbar navbar-item'>
         <div>
           <input
+            autoFocus={true}
             value={this.state.query.value}
             onChange={this.updateQuery}
             placeholder='Pokémon / Move ...'
@@ -69,6 +73,7 @@ export class SearchBar extends React.Component<any, SearchBarState> {
     if (this.state.query.value.length >= 2) {
       this.findMatchingPokemonNames()
       this.findMatchingMoveNames()
+      this.findMatchingEggGroupsNames()
     } else
       this.hideDropdown()
   }
@@ -92,6 +97,13 @@ export class SearchBar extends React.Component<any, SearchBarState> {
     }, this.showDropdown)
   }
 
+  private findMatchingEggGroupsNames = () => {
+    this.setState((state: SearchBarState) => ({
+      matchingEggGroupsNames: this.eggGroupsService.getEggGroupList()
+        .filter((name: string) => state.query.isASubsequenceOf(name)),
+    }))
+  }
+
   private showDropdown = () => {
     this.setState(() => ({ showDropdown: true }))
   }
@@ -101,14 +113,12 @@ export class SearchBar extends React.Component<any, SearchBarState> {
   }
 
   private renderDropdown = () => {
-    const results = []
-
-    this.state.matchingPokemonNames.forEach((pokemon: string) =>
-      results.push({ name: pokemon, resourceType: ResourceType }))
-
-    this.state.matchingMoveNames.forEach((move: string) =>
-      results.push({ name: move, resourceType: ResourceType }))
-
-    return <Dropdown pokemonNames={this.state.matchingPokemonNames} moveNames={this.state.matchingMoveNames}/>
+    return (
+      <Dropdown
+        pokemonNames={this.state.matchingPokemonNames}
+        moveNames={this.state.matchingMoveNames}
+        eggGroupNames={this.state.matchingEggGroupsNames}
+      />
+    )
   }
 }
